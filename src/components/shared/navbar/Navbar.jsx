@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
@@ -10,7 +11,11 @@ const Navbar = () => {
   console.log(user)
 
   const handleLogout = () => {
-    logOut()
+    logOut().then(result=>{
+      console.log(result)
+      Swal.fire('Log out successful')
+    })
+    .catch(error=>console.log(error))
   }
 
   return (
@@ -34,6 +39,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Instructor</Link></li>
+            <li><Link to="/">Class</Link></li>
+            <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/register">Register</Link></li>
             <li><Link to="/login">Login</Link></li>
 

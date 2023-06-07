@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { googleSignIn, signIn} = useAuth()
@@ -20,7 +21,7 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
             console.log(result)
-            // TODO: sweet alert 
+            Swal.fire('Log In successful')
             navigate(from, { replace: true })
         })
         .catch(error=>{
