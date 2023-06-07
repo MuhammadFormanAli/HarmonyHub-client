@@ -10,7 +10,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper";
 
+
+
 const Banner = () => {
+    const url = "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600"
     return (
         <div  className=' bg-base-200'>
 
@@ -39,7 +42,7 @@ const Banner = () => {
                                 <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src='/banner-1.png' alt=""/>
+                            <img  className='h-[300px] w-[400px]' src={url} alt=""/>
                             </div>
 
                         </div>
@@ -56,14 +59,14 @@ const Banner = () => {
                                 <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src='/banner-2.png' alt="" />
+                            <img  className='h-[300px] w-[400px]' src={url} alt="" />
                             </div>
 
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='max-h-full'>
-                    <div className="h-full ">
+                    <div  className="h-full ">
 
                         <div className="flex p-6 items-center justify-center flex-col-reverse md:flex-row gap-5">
                             <div>
@@ -73,7 +76,7 @@ const Banner = () => {
                                 <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src='/banner-3.png' alt="" />
+                            <img  className='h-[300px] w-[400px]' src={url} alt="" />
                             </div>
 
                         </div>
