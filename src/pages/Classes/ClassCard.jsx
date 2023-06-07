@@ -1,12 +1,15 @@
+import {  useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
+    // const location = useLocation()
+    const navigate = useNavigate()
 
     const handleSelectCourse = (classId) => {
-        if (!loggedIn) {
+        if (!user) {
             alert('Please log in before selecting the course.');
-            return;
+            return navigate('/login')
         }
 
         if (isAdminOrInstructor) {
@@ -18,7 +21,7 @@ const ClassCard = ({ course }) => {
         alert(`Selected class with ID: ${classId}`);
     }
 
-    const loggedIn = true
+   
     const isAdminOrInstructor = false
 
 
@@ -29,17 +32,20 @@ const ClassCard = ({ course }) => {
                 <img className=" p-1 max-h-[250px]" src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600" alt={course.name} />
 
                 <div className="ml-4 flex flex-col mt-5 justify-between">
+
                     <div>
                         <h2 className="text-2xl font-bold">{course.name}</h2>
                         <p>Instructor: {course.instructor}</p>
                         <p>Available Seats: {course.availableSeats}</p>
                     </div>
-                    <button disabled={course.availableSeats === 0 || isAdminOrInstructor || !user}
+
+                    <button disabled={course.availableSeats === 0 || isAdminOrInstructor}
                         onClick={() => handleSelectCourse(course.id)}
                         className="btn btn-outline text-black mb-1 w-fit"
                     >
                         <span className="text-black">Add To Cart</span>
                     </button>
+
                 </div>
             </div>
 

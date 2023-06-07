@@ -8,6 +8,10 @@ import Login from '../pages/login/Login';
 import Home from '../pages/Home/Home/Home';
 import Classes from '../pages/Classes/Classes';
 import Instructors from '../pages/Instructors/Instructors';
+import Dashboard from '../layouts/Dashboard';
+import MySelectedClasses from '../pages/dashboard/student/MySelectedClasses';
+import MyEnrolledClasses from '../pages/dashboard/student/MyEnrolledClasses';
+
 
 
 
@@ -39,6 +43,20 @@ const router = createBrowserRouter([
 
       ]
     },
+    {
+      path:"dashboard",
+      element:<Dashboard></Dashboard>,
+      children:[
+        {
+          path:"myselectedclasses",
+          element:<MySelectedClasses></MySelectedClasses>
+        },
+        {
+          path:"myenrolledclasses",
+          element:<MyEnrolledClasses></MyEnrolledClasses>
+        },
+      ]
+    }
     
   ]);
 

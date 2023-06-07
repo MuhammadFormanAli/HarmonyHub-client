@@ -8,7 +8,9 @@ const Login = () => {
     const { googleSignIn, signIn} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
+
     const from = location.state?.from?.pathname || '/'
+    console.log(location)
 
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
@@ -33,6 +35,12 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
+        .then(result => {
+            Swal.fire('Log In successful')
+            navigate(from, { replace: true })
+            console.log(result)
+        })
+        .catch(error => console.log(error.message))
     }
 
     const togglePasswordVisibility = () => {
