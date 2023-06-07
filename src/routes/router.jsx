@@ -7,6 +7,7 @@ import Register from '../pages/register/Register';
 import Login from '../pages/login/Login';
 import Home from '../pages/Home/Home/Home';
 import Classes from '../pages/Classes/Classes';
+import Instructors from '../pages/Instructors/Instructors';
 
 
 
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
           path:"classes",
           element:<Classes></Classes>
         },
+        {
+          path:"instructors",
+          element:<Instructors></Instructors>
+        },
+
       ]
     },
     
