@@ -1,0 +1,122 @@
+[
+    {
+        "_id": "6481149c681f5877298b4df6",
+        "img": "https://example.com/image.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "John Smith",
+        "instructorEmail": "johnsmith@example.com",
+        "enrolledStudents": 10,
+        "availableSeats": 150,
+        "price": 10.99,
+        "status": "approved",
+        "totalSeats": 200
+    },
+    {
+        "_id": "6481149c681f5877298b4df7",
+        "img": "https://example.com/image2.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "Jane Doe",
+        "instructorEmail": "janedoe@example.com",
+        "enrolledStudents": 15,
+        "availableSeats": 35,
+        "price": 8.99,
+        "status": "approved",
+        "totalSeats": 50
+    },
+    {
+        "_id": "6481149c681f5877298b4df8",
+        "img": "https://example.com/image3.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "Emily Johnson",
+        "instructorEmail": "emilyjohnson@example.com",
+        "enrolledStudents": 5,
+        "availableSeats": 20,
+        "price": 12.99,
+        "status": "approved",
+        "totalSeats": 25
+    },
+    {
+        "_id": "6481149c681f5877298b4df9",
+        "img": "https://example.com/image4.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "Michael Brown",
+        "instructorEmail": "michaelbrown@example.com",
+        "enrolledStudents": 20,
+        "availableSeats": 30,
+        "price": 14.99,
+        "status": "approved",
+        "totalSeats": 50
+    },
+    {
+        "_id": "6481149c681f5877298b4dfa",
+        "img": "https://example.com/image5.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "Sarah Davis",
+        "instructorEmail": "sarahdavis@example.com",
+        "enrolledStudents": 12,
+        "availableSeats": 18,
+        "price": 9.99,
+        "status": "approved",
+        "totalSeats": 30
+    },
+    {
+        "_id": "6481149c681f5877298b4dfb",
+        "img": "https://example.com/image6.jpg",
+        "className": "Learn Guitar Play",
+        "instructorName": "Mark Wilson",
+        "instructorEmail": "markwilson@example.com",
+        "enrolledStudents": 25,
+        "availableSeats": 5,
+        "price": 19.99,
+        "status": "approved",
+        "totalSeats": 30
+    },
+    {
+        "_id": "6481149c681f5877298b4df6",
+        "img": "https://example.com/image.jpg",
+        "className": "Musical Instrument Learning Class",
+        "instructorName": "John Smith",
+        "instructorEmail": "johnsmith@example.com",
+        "enrolledStudents": 10,
+        "availableSeats": 150,
+        "price": 10.99,
+        "status": "approved",
+        "totalSeats": 200
+    },
+    {
+        "_id": "6481149c681f5877298b4df7",
+        "img": "https://example.com/image2.jpg",
+        "className": "Musical Instrument Learning Class",
+        "instructorName": "Jane Doe",
+        "instructorEmail": "janedoe@example.com",
+        "enrolledStudents": 15,
+        "availableSeats": 35,
+        "price": 8.99,
+        "status": "approved",
+        "totalSeats": 50
+    },
+    {
+        "_id": "6481149c681f5877298b4df8",
+        "img": "https://example.com/image3.jpg",
+        "className": "Musical Instrument Learning Class",
+        "instructorName": "Emily Johnson",
+        "instructorEmail": "emilyjohnson@example.com",
+        "enrolledStudents": 5,
+        "availableSeats": 20,
+        "price": 12.99,
+        "status": "approved",
+        "totalSeats": 25
+    },
+    {
+        "_id": "6481149c681f5877298b4df9",
+        "img": "https://example.com/image4.jpg",
+        "className": "Musical Instrument Learning Class",
+        "instructorName": "Michael Brown",
+        "instructorEmail": "michaelbrown@example.com",
+        "enrolledStudents": 20,
+        "availableSeats": 30,
+        "price": 14.99,
+        "status": "approved",
+        "totalSeats": 50
+    }
+]

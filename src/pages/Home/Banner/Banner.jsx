@@ -39,7 +39,7 @@ const Banner = () => {
                                 <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
                                 <h1 className='text-6xl font-bold'>OFFER</h1>
                                 <h1 className='font-bold text-3xl'>5% off</h1>
-                                <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
+                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
                             <img  className='h-[300px] w-[400px]' src={url} alt=""/>
@@ -56,7 +56,7 @@ const Banner = () => {
                                 <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
                                 <h1 className='text-6xl font-bold'> OFFER</h1>
                                 <h1 className='font-bold text-3xl'>10% off</h1>
-                                <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
+                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
                             <img  className='h-[300px] w-[400px]' src={url} alt="" />
@@ -73,7 +73,7 @@ const Banner = () => {
                                 <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
                                 <h1 className='text-6xl font-bold'> OFFER</h1>
                                 <h1 className='font-bold text-3xl'>15% off</h1>
-                                <button className='p-3 border-none btn rounded-full bg-[#021314]'>Shop Now<FaArrowRight /></button>
+                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
                             <img  className='h-[300px] w-[400px]' src={url} alt="" />

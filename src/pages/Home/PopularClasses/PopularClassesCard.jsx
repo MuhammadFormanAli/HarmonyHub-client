@@ -1,18 +1,20 @@
 
-const PopularClassesCard = () => {
+const PopularClassesCard = ({course}) => {
+    console.log(course)
 
     return (
         <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
             <img className="max-h-[200px]" src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Shoes" />
-            <div className="  card-body justify-between">
-                <h2 className="card-title">Learn Play Guitar</h2>
+            <div className="  card-body justify-between relative">
+                <h2 className="card-title">{course?.className}</h2>
                 <div>
-                <p>Name of Instructor</p>
-                <p>Total Students: 50</p>
+                <p>{course?.instructorName}</p>
+                <p>{course?.instructorEmail}</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <button className="btn btn-primary">Add to Cart</button>
                 </div>
+                <p className="absolute top-2 right-2 p-2 font-bold bg-yellow-900 text-white">${course.price}</p>
             </div>
         </div>
     );
