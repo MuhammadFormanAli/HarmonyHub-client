@@ -17,7 +17,6 @@ const Register = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
-
 	const password = watch('password', '');
 
 
