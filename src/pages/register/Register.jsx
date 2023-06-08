@@ -41,7 +41,7 @@ const Register = () => {
 							console.log(result)
 							if (result.insertedId) {
 								reset()
-								Swal.fire('Log In successful')
+								Swal.fire('SighUp successful')
 								navigate(from, { replace: true })
 							}
 							})
