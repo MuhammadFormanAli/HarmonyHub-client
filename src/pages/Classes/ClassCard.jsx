@@ -1,24 +1,18 @@
-import {  useNavigate } from "react-router-dom";
+
 import useAuth from "../../hooks/useAuth";
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
-    // const location = useLocation()
-    const navigate = useNavigate()
+    
 
-    const handleSelectCourse = (classId) => {
-        if (!user) {
-            alert('Please log in before selecting the course.');
-            return navigate('/login')
-        }
+    const handleSelectCourse = (course) => {
 
-        if (isAdminOrInstructor) {
-            alert('As an admin or instructor, you cannot select a class.');
-            return;
-        }
+        const {img,className,instructorName,availableSeats,price,_id }= course
+        const cartItem = {img,className,instructorName,availableSeats,price, courseId:_id,studentEmail:user.email}
+        console.log(cartItem)
+        
 
-        // Handle class selection logic here
-        alert(`Selected class with ID: ${classId}`);
+
     }
 
    
@@ -26,21 +20,21 @@ const ClassCard = ({ course }) => {
 
 
     return (
-        <div className="card text-slate-950 rounded-sm relative" style={{ backgroundColor: course.availableSeats === 0 ? '#c74040' : 'white' }}  >
+        <div className="border card text-slate-950 rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#c74040' : 'white' }}  >
 
             <div className=" flex flex-col md:flex-row">
-                <img className=" p-1 max-h-[250px]" src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600" alt={course.name} />
+                <img className=" p-1 max-h-[250px]" src={course.img} alt={course.name} />
 
                 <div className="ml-4 flex flex-col mt-5 justify-between">
 
                     <div>
-                        <h2 className="text-2xl font-bold">{course.name}</h2>
-                        <p>Instructor: {course.instructor}</p>
-                        <p>Available Seats: {course.availableSeats}</p>
+                        <h2 className="text-2xl font-bold">{course?.className}</h2>
+                        <p className="text-lg font-bold">Instructor: {course?.instructorName}</p>
+                        <p>Available Seats: {course?.availableSeats}</p>
                     </div>
 
-                    <button disabled={course.availableSeats === 0 || isAdminOrInstructor}
-                        onClick={() => handleSelectCourse(course.id)}
+                    <button disabled={course?.availableSeats === 0 || isAdminOrInstructor}
+                        onClick={() => handleSelectCourse(course)}
                         className="btn btn-outline text-black mb-1 w-fit"
                     >
                         <span className="text-black">Add To Cart</span>

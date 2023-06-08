@@ -3,9 +3,10 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogIn from '../../components/shared/socialLogin/SocialLogIn';
 
 const Login = () => {
-    const { googleSignIn, signIn} = useAuth()
+    const { signIn} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -33,15 +34,6 @@ const Login = () => {
         reset()
     };
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-        .then(result => {
-            Swal.fire('Log In successful')
-            navigate(from, { replace: true })
-            console.log(result)
-        })
-        .catch(error => console.log(error.message))
-    }
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -109,7 +101,7 @@ const Login = () => {
             </form>
 
             <div>
-                <button className='btn btn-outline w-full font-bold text-xl' onClick={handleGoogleSignIn}>google sign in</button>
+                <SocialLogIn></SocialLogIn>
             </div>
         </div>
     );

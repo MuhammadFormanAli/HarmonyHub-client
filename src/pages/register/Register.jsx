@@ -2,17 +2,18 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLogIn from '../../components/shared/socialLogin/SocialLogIn';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-	const { googleSignIn, createUser, manageUser } = useAuth()
+	const { createUser, manageUser } = useAuth()
 
 	const navigate = useNavigate()
 	const location = useLocation()
 
 	const from = location.state?.from?.pathname || '/'
 
-	console.log(googleSignIn)
+
 	const [showPassword, setShowPassword] = useState(false);
 
 	const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
@@ -29,6 +30,21 @@ const Register = () => {
 				// Todo:sweet alert 
 				manageUser(name, photo)
 					.then(result => {
+						const saveUser = { name, email, photo, role }
+						fetch('http://localhost:5000/users', {
+							method: 'POST',
+							headers: { 'content-type': 'application/json' },
+							body: JSON.stringify(saveUser)
+						})
+						.then(res => res.json())
+						.then(result => {
+							console.log(result)
+							if (result.insertedId) {
+								reset()
+								Swal.fire('Log In successful')
+								navigate(from, { replace: true })
+							}
+							})
 						console.log(result)
 						console.log('Profile Updated')
 					})
@@ -36,8 +52,7 @@ const Register = () => {
 						console.log(error.message)
 					})
 				console.log(result)
-				Swal.fire('Log In successful')
-				navigate(from, { replace: true })
+
 			})
 			.catch(error => {
 				console.log(error)
@@ -48,9 +63,7 @@ const Register = () => {
 		reset()
 	};
 
-	const handleGoogleSignIn = () => {
-		googleSignIn()
-	}
+
 
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword);
@@ -137,10 +150,7 @@ const Register = () => {
 					<p>Already have an account <Link to="/login" className='text-blue-700 underline'>Login</Link></p>
 				</div>
 			</form>
-
-			<div>
-				<button className='btn btn-outline w-full font-bold text-xl' onClick={handleGoogleSignIn}>google sign in</button>
-			</div>
+			<SocialLogIn></SocialLogIn>
 		</div>
 	);
 };
