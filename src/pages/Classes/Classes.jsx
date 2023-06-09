@@ -5,7 +5,7 @@ import ClassCard from "./ClassCard";
 const Classes = () => {
     const [classes, loading] =useClasses()
     if(loading){
-        return <>loading..........</>
+        return <div className="text-center"><span className="loading loading-spinner loading-lg"></span></div>
     }
 
     const courses = classes?.filter(course=> course?.status === "approved")

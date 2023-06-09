@@ -5,7 +5,8 @@ const useClasses = () => {
         queryKey: ['classes'],
         queryFn: async() => {
             const res = await fetch('http://localhost:5000/classes');
-            return res.json();
+            const data = await res.json()
+            return data;
         }
     })
 

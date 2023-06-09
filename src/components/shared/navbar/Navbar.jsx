@@ -4,26 +4,24 @@ import Swal from "sweetalert2";
 
 
 const Navbar = () => {
-  const { logOut, user, loading } = useAuth()
-  if (loading) {
-    return <div>Loading...</div>
-  }
+  const { logOut, user } = useAuth()
+
   console.log(user)
 
   const handleLogout = () => {
-    logOut().then(result=>{
+    logOut().then(result => {
       console.log(result)
       Swal.fire('Log out successful')
     })
-    .catch(error=>console.log(error))
+      .catch(error => console.log(error))
   }
 
   return (
     <div className="shadow-md m-0 p-0">
-      <div className="navbar bg-base-200">
+      <div className="navbar bg-base-300">
         <div className="navbar-start">
 
-          <div className="dropdown">
+          <div className="dropdown z-10">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
@@ -41,17 +39,28 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/instructors">Instructors</Link></li>
             <li><Link to="/classes">Classes</Link></li>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/register">Register</Link></li>
-            <li><Link to="/login">Login</Link></li>
-
+            {
+              !user && <li><Link to="/register">Register</Link></li>
+            }
+            {
+              user?.email &&
+              <>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+              </>
+            }
           </ul>
-          {
-            user ? <div>{user.displayName}</div> : 'no user'
-          }
+
         </div>
         <div className="navbar-end">
-          <button onClick={handleLogout} className="btn">Logout</button>
+          <div className="avatar mr-4">
+            <div className="w-[40px] rounded-full ring ring-slate-600 ring-offset-base-100 ring-offset-2">
+              {/* <img src="/avatar.jpg" /> */}
+              <img src={user?`${user.photoURL}`:'/public/avatar.jpg'}/>
+            </div>
+          </div>
+          {
+            user ? <button onClick={handleLogout} className="btn btn-outline btn-accent">Logout</button> : <li className="list-none"><Link className="btn btn-outline btn-accent" to="/login">Login</Link></li>
+          }
         </div>
       </div>
     </div>

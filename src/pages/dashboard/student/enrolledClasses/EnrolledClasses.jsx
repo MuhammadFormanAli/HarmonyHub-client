@@ -12,7 +12,7 @@ const EnrolledClasses = () => {
 
     return (
         <div>
-            <h1 className="text-4xl font-bold text-center my-8"> My Enrolled Classes</h1>
+            <h1 className="text-2xl text-black text-center font-bold bg-cyan-100 p-10 mb-4"> My Enrolled Classes</h1>
             <div className="grid gap-4 grid-cols-1">
                 {
                     enrolledClasses.map(course => <EnrolledClassesCard
