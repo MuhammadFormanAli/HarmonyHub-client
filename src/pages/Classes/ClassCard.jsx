@@ -1,10 +1,13 @@
 
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+// import useAxiosSecure from "../../hooks/useAxiosSecure";
+
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
-    
+    // const[axiosSecure] = useAxiosSecure
 const navigate = useNavigate()
 
     const handleSelectCourse = (course) => {
@@ -19,16 +22,18 @@ const navigate = useNavigate()
         const cartItem = {img,className,instructorName,availableSeats,price, courseId:_id,studentEmail:user.email, payStatus:'unpaid'}
         console.log(cartItem)
 
-        fetch('http://localhost:5000/carts',{
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(cartItem)
-        }).then(res => res.json()).then(result =>{
-            console.log(result)
+        // fetch('http://localhost:5000/carts',{
+        //     method: 'POST',
+        //     headers: { 'content-type': 'application/json' },
+        //     body: JSON.stringify(cartItem)
+        // }).then(res => res.json()).then(result =>{
+        //     console.log(result)
+        // })
+
+        axios('http://localhost:5000/carts',cartItem)
+        .then(data =>{
+            console.log(data.data)
         })
-        
-
-
     }
 
 //    Todo:

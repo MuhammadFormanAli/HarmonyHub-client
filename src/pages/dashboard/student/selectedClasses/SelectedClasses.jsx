@@ -9,7 +9,7 @@ const SelectedClasses = () => {
     if (loading) {
         return <>loading..............</>
     }
-    const selectedCourses = carts.filter(item => item.payStatus === 'unpaid')
+    const selectedCourses = carts?.filter(item => item.payStatus === 'unpaid')
     return (
         <div>
             <h1 className="text-2xl text-black text-center font-bold bg-cyan-100 p-10 mb-4">My Selected Classes</h1>

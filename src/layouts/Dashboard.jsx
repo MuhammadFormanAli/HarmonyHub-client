@@ -1,10 +1,13 @@
 import { FaHome } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 import { ImMenu } from "react-icons/im";
+import useRole from "../hooks/useRole";
 
 
 const Dashboard = () => {
-    const role = 'admin'
+    const [userRole] = useRole()
+    console.log(userRole)
+    
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -16,14 +19,22 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
-                    {role === 'admin' &&
+                    {userRole?.role === 'admin' &&
                         <>
                             <li><Link to="manageClasses">Manage Classes</Link></li>
-                            <li><Link to="manageusers">Mange Users</Link></li>
+                            <li><Link to="manageUsers">Mange Users</Link></li>
                         </>
 
                     }
-                    {role === 'student' &&
+                    {userRole?.role === 'student' &&
+                        <>
+                            <li><Link to="selectedclasses">My Selected Classes</Link></li>
+                            <li><Link to="enrolledclasses">My Enrolled Classes</Link></li>
+                            <li><Link to="#payhistory">Payments History</Link></li>
+                        </>
+
+                    }
+                    {userRole?.role === 'instructor' &&
                         <>
                             <li><Link to="selectedclasses">My Selected Classes</Link></li>
                             <li><Link to="enrolledclasses">My Enrolled Classes</Link></li>

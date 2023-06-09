@@ -1,16 +1,26 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import PopularClassesCard from "./PopularClassesCard";
+import axios from "axios";
 
 const PopularClasses = () => {
-    const [popular, setPopular] = useState([])
+    // const [popular, setPopular] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/topclasses')
-            .then(res => res.json())
-            .then(result => {
-                setPopular(result)
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/topclasses')
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             setPopular(result)
+    //         })
+    // }, [])
+    const {data: popular = [], loading} = useQuery({
+        queryKey: ['popular'],
+        queryFn: async() => {
+            const res = await axios(`http://localhost:5000/topclasses`)
+
+            return res.data;
+        }
+    })
 
     return (
         <div>
@@ -20,6 +30,7 @@ const PopularClasses = () => {
                     popular.map(course=><PopularClassesCard 
                     key={course._id}
                     course={course}
+                    loading={loading}
                     ></PopularClassesCard>)
                 }
                 

@@ -1,13 +1,17 @@
 
-const PopularClassesCard = ({course}) => {
+const PopularClassesCard = ({course,loading}) => {
+    if(loading){
+        return <>loading</>
+    }
     return (
         <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
             <img className="max-h-[200px]" src={course?.img} alt="Shoes" />
             <div className="  card-body  relative">
                 <h2 className="card-title">{course?.className}</h2>
                 <div>
-                <p>{course?.instructorName}</p>
-                <p>{course?.instructorEmail}</p>
+                <p className="font-bold text-lg">Instructor:{course?.instructorName}</p>
+                <p className="font-bold">Email:{course?.instructorEmail}</p>
+                <p className="mt-8 font-extrabold text-base">Students: {course?.enrolledStudents}</p>
                 </div>
                 {/* <div className="card-actions justify-end">
                     <button className="btn btn-primary">Add to Cart</button>

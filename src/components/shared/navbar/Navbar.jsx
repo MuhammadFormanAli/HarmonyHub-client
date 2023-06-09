@@ -54,8 +54,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="avatar mr-4">
             <div className="w-[40px] rounded-full ring ring-slate-600 ring-offset-base-100 ring-offset-2">
-              {/* <img src="/avatar.jpg" /> */}
-              <img src={user?`${user.photoURL}`:'/public/avatar.jpg'}/>
+              <img src={user?`${user?.photoURL}`:'/public/avatar.jpg'}/>
             </div>
           </div>
           {

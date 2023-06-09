@@ -1,3 +1,4 @@
+import axios from "axios";
 
 
 const ManageClassesCard = ({ index, course,refetch }) => {
@@ -5,15 +6,9 @@ const ManageClassesCard = ({ index, course,refetch }) => {
     const { className, instructorName, instructorEmail, price, status, totalSeats, img, _id } = course
 
     const handleUpdateStatus = (id,updatedStatus)=>{
-        fetch(`http://localhost:5000/classes/${id}`,{
-            method: 'PUT',
-            headers: { 
-                'content-type': 'application/json'
-             },
-            body: JSON.stringify({updatedStatus})
-        })
-        .then(res =>res.json())
+        axios.put(`http://localhost:5000/classes/${id}`,{updatedStatus})
         .then(data=>{
+            // Todo: swal 
             console.log('log from handleUpdateStatus',data)
             refetch()
         }) 
