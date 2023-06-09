@@ -13,6 +13,8 @@ import SelectedClasses from '../pages/dashboard/student/selectedClasses/Selected
 import EnrolledClasses from '../pages/dashboard/student/enrolledClasses/EnrolledClasses';
 import ManageClasses from '../pages/dashboard/admin/manageClasses/ManageClasses';
 import ManageUsers from '../pages/dashboard/admin/manageUsers/ManageUsers';
+import AddClass from '../pages/dashboard/instructor/AddClass';
+import MyClasses from '../pages/dashboard/instructor/myClasses/MyClasses';
 
 
 
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
         {
           path:"manageusers",
           element:<ManageUsers></ManageUsers> //will be admin private route
+        },
+        {
+          path:"add-class",
+          element:<AddClass></AddClass> 
+        },
+        {
+          path:"my-class",
+          element:<MyClasses></MyClasses> 
         },
       ]
     }

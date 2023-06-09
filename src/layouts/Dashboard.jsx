@@ -7,7 +7,7 @@ import useRole from "../hooks/useRole";
 const Dashboard = () => {
     const [userRole] = useRole()
     console.log(userRole)
-    
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -26,6 +26,16 @@ const Dashboard = () => {
                         </>
 
                     }
+
+                    {userRole?.role === 'instructor' &&
+                        <>
+                            <li><Link to="add-class">Add A Class</Link></li>
+                            <li><Link to="my-class">My Classes</Link></li>
+                    
+                        </>
+
+                    }
+
                     {userRole?.role === 'student' &&
                         <>
                             <li><Link to="selectedclasses">My Selected Classes</Link></li>
@@ -34,14 +44,7 @@ const Dashboard = () => {
                         </>
 
                     }
-                    {userRole?.role === 'instructor' &&
-                        <>
-                            <li><Link to="selectedclasses">My Selected Classes</Link></li>
-                            <li><Link to="enrolledclasses">My Enrolled Classes</Link></li>
-                            <li><Link to="#payhistory">Payments History</Link></li>
-                        </>
 
-                    }
 
                     <div className="divider"></div>
                     <li><Link to="/"><FaHome></FaHome> Home</Link> </li>

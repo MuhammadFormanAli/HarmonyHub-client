@@ -29,9 +29,21 @@ const Navbar = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/register">Register</Link></li>
               <li><Link to="/login">Login</Link></li>
+              {
+              !user && <li><Link to="/register">Register</Link></li>
+            }
+            {
+              user?.email &&
+              <>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+              </>
+            }
+
             </ul>
           </div>
-          <img className="w-[150px] sm:hidden md:block" src="/logo.png" alt="" />
+          
+          <img className="w-[150px] hidden sm:block " src="/logo.png" alt="" />
+          
         </div>
 
         <div className="navbar-center hidden lg:flex">
