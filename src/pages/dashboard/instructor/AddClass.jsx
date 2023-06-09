@@ -19,7 +19,7 @@ const AddClass = () => {
 
         const course = {img,className,instructorName,instructorEmail,price,enrolledStudents,availableSeats,status,}
 
-        axiosSecure.post('http://localhost:5000/classes',{course})
+        axiosSecure.post('/classes',{course})
         .then(data =>{
             console.log(data.data)
             if(data.data.insertedId){
