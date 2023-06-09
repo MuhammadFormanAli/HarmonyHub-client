@@ -33,7 +33,7 @@ const Navbar = () => {
               <li><Link to="/login">Login</Link></li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <img className="w-[150px] sm:hidden md:block" src="/logo.png" alt="" />
         </div>
 
         <div className="navbar-center hidden lg:flex">

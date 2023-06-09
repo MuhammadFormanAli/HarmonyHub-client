@@ -1,5 +1,7 @@
 
-const PopularClassesCard = ({course}) => {
+
+const EnrolledClassesCard = ({course}) => {
+
     return (
         <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
             <img className="max-h-[200px]" src={course?.img} alt="Shoes" />
@@ -8,14 +10,14 @@ const PopularClassesCard = ({course}) => {
                 <div>
                 <p>{course?.instructorName}</p>
                 <p>{course?.instructorEmail}</p>
+                <progress className="progress progress-info " value="70" max="100"></progress>
                 </div>
-                {/* <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Add to Cart</button>
-                </div> */}
-                <p className="absolute top-2 right-2 p-2 font-bold bg-yellow-900 text-white">${course.price}</p>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Continue</button>
+                </div>
             </div>
         </div>
     );
 };
 
-export default PopularClassesCard;
+export default EnrolledClassesCard;

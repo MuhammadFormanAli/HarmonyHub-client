@@ -9,8 +9,11 @@ import Home from '../pages/Home/Home/Home';
 import Classes from '../pages/Classes/Classes';
 import Instructors from '../pages/Instructors/Instructors';
 import Dashboard from '../layouts/Dashboard';
-import MySelectedClasses from '../pages/dashboard/student/MySelectedClasses';
-import MyEnrolledClasses from '../pages/dashboard/student/MyEnrolledClasses';
+import SelectedClasses from '../pages/dashboard/student/selectedClasses/SelectedClasses';
+import EnrolledClasses from '../pages/dashboard/student/enrolledClasses/EnrolledClasses';
+import ManageClasses from '../pages/dashboard/admin/manageClasses/ManageClasses';
+import ManageUsers from '../pages/dashboard/admin/manageUsers/ManageUsers';
+
 
 
 
@@ -45,15 +48,23 @@ const router = createBrowserRouter([
     },
     {
       path:"dashboard",
-      element:<Dashboard></Dashboard>,
+      element:<Dashboard></Dashboard>, //will be private route
       children:[
         {
-          path:"myselectedclasses",
-          element:<MySelectedClasses></MySelectedClasses>
+          path:"selectedclasses",
+          element:<SelectedClasses></SelectedClasses> //will be student private route
         },
         {
-          path:"myenrolledclasses",
-          element:<MyEnrolledClasses></MyEnrolledClasses>
+          path:"enrolledclasses",
+          element:<EnrolledClasses></EnrolledClasses> //will be student private route
+        },
+        {
+          path:"manageclasses",
+          element:<ManageClasses></ManageClasses> //will be admin private route
+        },
+        {
+          path:"manageusers",
+          element:<ManageUsers></ManageUsers> //will be admin private route
         },
       ]
     }
