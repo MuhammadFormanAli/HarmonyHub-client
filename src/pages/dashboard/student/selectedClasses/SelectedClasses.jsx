@@ -5,10 +5,8 @@ import SelectedClassRow from "./SelectedClassRow";
 
 const SelectedClasses = () => {
 
-    const [carts, loading] = useCarts()
-    if (loading) {
-        return <>loading..............</>
-    }
+    const [carts,refetch] = useCarts()
+    
     const selectedCourses = carts?.filter(item => item.payStatus === 'unpaid')
     return (
         <div>
@@ -33,6 +31,7 @@ const SelectedClasses = () => {
                                 selectedCourses?.map((item, index) => <SelectedClassRow key={item._id}
                                     course={item}
                                     index={index}
+                                    refetch={refetch}
                                 ></SelectedClassRow>)
                             }
                         </tbody>

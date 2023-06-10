@@ -15,6 +15,8 @@ import ManageClasses from '../pages/dashboard/admin/manageClasses/ManageClasses'
 import ManageUsers from '../pages/dashboard/admin/manageUsers/ManageUsers';
 import AddClass from '../pages/dashboard/instructor/AddClass';
 import MyClasses from '../pages/dashboard/instructor/myClasses/MyClasses';
+import DashboardHome from '../pages/dashboard/dashboardHome/DashboardHome';
+import Feedback from '../pages/dashboard/admin/feedback/Feedback';
 
 
 
@@ -53,20 +55,28 @@ const router = createBrowserRouter([
       element:<Dashboard></Dashboard>, //will be private route
       children:[
         {
-          path:"selectedclasses",
+          path:"dashboard-home",
+          element:<DashboardHome></DashboardHome> //will be student private route
+        },
+        {
+          path:"selected-classes",
           element:<SelectedClasses></SelectedClasses> //will be student private route
         },
         {
-          path:"enrolledclasses",
+          path:"enrolled-classes",
           element:<EnrolledClasses></EnrolledClasses> //will be student private route
         },
         {
-          path:"manageclasses",
+          path:"manage-classes",
           element:<ManageClasses></ManageClasses> //will be admin private route
         },
         {
-          path:"manageusers",
+          path:"manage-users",
           element:<ManageUsers></ManageUsers> //will be admin private route
+        },
+        {
+          path:'manage-classes/feedback/:id',
+          element:<Feedback></Feedback>
         },
         {
           path:"add-class",

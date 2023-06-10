@@ -7,19 +7,18 @@ import MyClassesRow from "./MyClassesRow";
 const MyClasses = () => {
 
     const [axiosSecure] = useAxiosSecure()
-    const {user} = useAuth()
+    const {user,} = useAuth()
 
-    const { data: instructorClasses = [], loading, refetch } = useQuery({
+    const { data: instructorClasses = [],isLoading:loading, refetch } = useQuery({
         queryKey: ['instructorClasses',user?.email],
+        
         queryFn: async () => {
-            const res = await axiosSecure(`/classes/${user.email}`)
+            const res = await axiosSecure(`http://localhost:5000/instructor/classes?email=${user?.email}`)
             return res.data;
         }
     })
 
-    if(loading){
-        return <>loading</>
-    }
+
 
     return (
         <div>
@@ -35,8 +34,8 @@ const MyClasses = () => {
                             <th>Enrolled students</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th>Action</th>
                             <th>Feedback</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +48,7 @@ const MyClasses = () => {
                                 index={index}
                                 instructorClass={instructorClass}
                                 refetch={refetch}
+                                loading={loading}
                             >
                             </MyClassesRow>
                             )}

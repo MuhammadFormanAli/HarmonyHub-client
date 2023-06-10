@@ -21,14 +21,11 @@ const SocialLogIn = () => {
                 
                 axiosSecure.post('/users',{saveUser})
                 .then(data=>{
-                    if(data.data.insertedId){
-                       Swal.fire('Log In successful') 
-                       navigate(from, { replace: true })
-                    }
-                    
-
+                
                     console.log(data.data)
                     
+                    Swal.fire('Log In successful')
+                    navigate(from, { replace: true })
                 })
                 
                 // fetch('http://localhost:5000/users', {

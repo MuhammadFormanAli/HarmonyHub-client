@@ -13,8 +13,8 @@ const Classes = () => {
     console.log(courses)
 
     return (
-        <div>
-            <h1 className="text-3xl text-center font-bold m-6">Classes</h1>
+        <div className="my-8">
+            <h1 className="text-3xl text-center font-bold m-6">Our Classes</h1>
             <div className="flex flex-col gap-3">
                 {
                     courses.map(course => <ClassCard

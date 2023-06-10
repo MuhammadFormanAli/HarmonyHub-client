@@ -4,12 +4,17 @@ import useAuth from "../../hooks/useAuth";
 // import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useRole from "../../hooks/useRole";
 
 
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
     const[axiosSecure] = useAxiosSecure()
+    const[userRole]=useRole()
+    const {role}=userRole
+   
+
 const navigate = useNavigate()
 
     const handleSelectCourse = (course) => {
@@ -22,7 +27,7 @@ const navigate = useNavigate()
 
         const {img,className,instructorName,availableSeats,price,_id }= course
         const cartItem = {img,className,instructorName,availableSeats,price, courseId:_id,studentEmail:user.email, payStatus:'unpaid'}
-        console.log(cartItem)
+        // console.log(cartItem)
 
         // fetch('http://localhost:5000/carts',{
         //     method: 'POST',
@@ -34,17 +39,23 @@ const navigate = useNavigate()
 
         axiosSecure.post('/carts',cartItem)
         .then(data =>{
+            if(data.data.insertedId){
+                Swal.fire('Added to card')
+            }
+            if(data.data.message){
+                Swal.fire(`${data.data.message}`)
+            }
             console.log(data.data)
         })
     }
 
 //    Todo:
-const isAdminOrInstructor = false
+
     
 
 
     return (
-        <div className="border card text-slate-950 rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#c74040' : 'white' }}  >
+        <div className="border card   rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  >
 
             <div className=" flex flex-col md:flex-row">
                 <img className=" p-1 max-h-[250px]" src={course.img} alt={course.name} />
@@ -57,7 +68,7 @@ const isAdminOrInstructor = false
                         <p>Available Seats: {course?.availableSeats}</p>
                     </div>
 
-                    <button disabled={course?.availableSeats === 0 || isAdminOrInstructor}
+                    <button disabled={course?.availableSeats === 0 || role === 'admin' || role === 'instructor'}
                         onClick={() => handleSelectCourse(course)}
                         className="btn btn-outline text-black mb-1 w-fit"
                     >
@@ -67,7 +78,7 @@ const isAdminOrInstructor = false
                 </div>
             </div>
 
-            <p className="bg-[#eceb98] font-bold absolute top-2 right-3 p-4 ">Price: ${course.price}</p>
+            <p className="bg-[#ecea985e] font-bold absolute top-2 right-3 p-2 md:p-4 ">Price: ${course.price}</p>
 
         </div>
     );

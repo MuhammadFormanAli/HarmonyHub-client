@@ -3,12 +3,10 @@ import EnrolledClassesCard from "./EnrolledClassesCard";
 
 
 const EnrolledClasses = () => {
-    const [carts, loading] = useCarts()
-    if (loading) {
-        return <>loading..............</>
-    }
-    const enrolledClasses = carts.filter(item => item.payStatus === "paid")
-    console.log(enrolledClasses)
+    const [carts] = useCarts()
+    
+    const enrolledClasses = carts?.filter(item => item.payStatus === "paid")
+    // console.log(enrolledClasses)
 
     return (
         <div>
@@ -16,7 +14,7 @@ const EnrolledClasses = () => {
             <div className="grid gap-4 grid-cols-1">
                 {
                     enrolledClasses.map(course => <EnrolledClassesCard
-                        key={course._id}
+                        key={course?._id}
                         course={course}
                     ></EnrolledClassesCard>)
                 }

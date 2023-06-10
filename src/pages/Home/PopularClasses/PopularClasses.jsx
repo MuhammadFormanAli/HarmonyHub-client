@@ -22,6 +22,19 @@ const PopularClasses = () => {
         }
     })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div>
             <h1 className="text-4xl font-bold text-center my-8"> Top Classes</h1>
@@ -36,6 +49,7 @@ const PopularClasses = () => {
                 
 
             </div>
+           
         </div>
     );
 };

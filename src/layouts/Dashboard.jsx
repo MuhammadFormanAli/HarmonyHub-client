@@ -1,12 +1,15 @@
 import { FaHome } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { ImMenu } from "react-icons/im";
 import useRole from "../hooks/useRole";
+import DashboardHome from "../pages/dashboard/dashboardHome/DashboardHome";
 
 
 const Dashboard = () => {
+  const  location=useLocation()
+
     const [userRole] = useRole()
-    console.log(userRole)
+    // console.log(location)
 
     return (
         <div className="drawer lg:drawer-open">
@@ -14,15 +17,20 @@ const Dashboard = () => {
             <div className="drawer-content flex flex-col px-4 w-full">
                 <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden"><ImMenu /></label>
                 <Outlet></Outlet>
+
+                {location.pathname == '/dashboard'&& <DashboardHome></DashboardHome>}
+              
             </div>
+             
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                <li><Link to="dashboard-home">Dashboard Home</Link></li>
                     {/* Sidebar content here */}
                     {userRole?.role === 'admin' &&
                         <>
-                            <li><Link to="manageClasses">Manage Classes</Link></li>
-                            <li><Link to="manageUsers">Mange Users</Link></li>
+                            <li><Link to="manage-classes">Manage Classes</Link></li>
+                            <li><Link to="manage-users">Mange Users</Link></li>
                         </>
 
                     }
@@ -38,8 +46,8 @@ const Dashboard = () => {
 
                     {userRole?.role === 'student' &&
                         <>
-                            <li><Link to="selectedclasses">My Selected Classes</Link></li>
-                            <li><Link to="enrolledclasses">My Enrolled Classes</Link></li>
+                            <li><Link to="selected-classes">My Selected Classes</Link></li>
+                            <li><Link to="enrolled-classes">My Enrolled Classes</Link></li>
                             <li><Link to="#payhistory">Payments History</Link></li>
                         </>
 

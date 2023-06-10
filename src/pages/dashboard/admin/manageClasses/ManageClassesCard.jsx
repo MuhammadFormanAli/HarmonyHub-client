@@ -1,29 +1,29 @@
 // import axios from "axios";
+import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
-const ManageClassesCard = ({ index, course,refetch }) => {
-    // document.querySelector('html').setAttribute('data-theme','light')
 
-    let a = document.querySelector('html')
-    console.log(a)
 
-    const [axiosSecure]=useAxiosSecure()
+
+
+
+const ManageClassesCard = ({ index, course, refetch }) => {
+    const [axiosSecure] = useAxiosSecure()
     console.log(course)
-    const { className, instructorName, instructorEmail, price, status, availableSeats, img, _id } = course
+    const { className, instructorName, instructorEmail, price, status, availableSeats, img, _id ,feedback} = course
 
-    const handleUpdateStatus = (id,updatedStatus)=>{
-        axiosSecure.put(`/classes/${id}`,{updatedStatus})
-        .then(data=>{
-            // Todo: swal 
-            console.log('log from handleUpdateStatus',data)
-            refetch()
-        }) 
+    const handleUpdateStatus = (id, updatedStatus) => {
+        axiosSecure.put(`/classes/${id}`, { updatedStatus })
+            .then(data => {
+                if (data.data.modifiedCount) {
+                    Swal.fire('Status Updated')
+                    refetch()
+                }
+            })
     }
 
-    const handleFeedback = (id)=>{
-        console.log({id})
-    }
     return (
         <tr>
             <th>{index + 1}</th>
@@ -49,9 +49,10 @@ const ManageClassesCard = ({ index, course,refetch }) => {
             <td>
                 {/* 3 buttons( Approve, Deny and send feedback) */}
 
-                <button onClick={()=>handleUpdateStatus(_id,'approved')} disabled={status === 'approved' || status === 'denied'} className="btn btn-sm block m-1 btn-success">Approve</button>
-                <button onClick={()=>handleUpdateStatus(_id,'denied')} disabled={status === 'approved' || status === 'denied'} className="btn btn-sm block m-1 btn-error">Deny</button>
-                <button onClick={()=>handleFeedback(_id)} className="btn btn-sm block m-1 btn-info">Send Feedback</button>
+                <button onClick={() => handleUpdateStatus(_id, 'approved')} disabled={status === 'approved' || status === 'denied'} className="btn disabled:bg-green-100 btn-sm block m-1 btn-success">Approve</button>
+                <button onClick={() => handleUpdateStatus(_id, 'denied')} disabled={status === 'approved' || status === 'denied'} className="btn btn-sm disabled:bg-red-100 block m-1 btn-error">Deny</button>
+                <Link  className="btn btn-sm block m-1 btn-info" to={`feedback/${_id}`}>{feedback?"Feedback Sended":"Give Feedback"}</Link>
+                {/* <Link disabled={status === 'approved' ||status === 'pending'|| feedback}  className="btn btn-sm block m-1 btn-info" to={`feedback/${_id}`}>{feedback?"Feedback Sended":"Give Feedback"}</Link> */}
             </td>
         </tr>
     );

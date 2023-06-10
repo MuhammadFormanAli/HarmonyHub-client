@@ -1,32 +1,46 @@
-import axios from "axios";
+
 import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const ManageUsersRow = ({ index, User, refetch }) => {
     const{user} = useAuth()
+    const[axiosSecure] = useAxiosSecure()
 
     const { name, email, role, photo, _id } = User
 
-    console.log(User)
 
-    const handleMakeAdmin = (id,updatedRole)=>{
-        axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
+    // const handleMakeAdmin = (id,updatedRole)=>{
+    //     axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
+    //     .then(data=>{
+    //         console.log(data.data)
+    //         refetch()
+    //     }) 
+                
+    // }
+
+    // const handleMakeInstructor = (id,updatedRole)=>{
+    //     axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
+    //     .then(data=>{
+    //         console.log(data.data)
+    //     }) 
+    //     refetch()
+                
+    // }
+
+    const handleRole = (id,updatedRole)=>{
+        axiosSecure.put(`/users/${id}`,{updatedRole})
         .then(data=>{
             console.log(data.data)
-            refetch()
-        }) 
-                
-    }
+            if(data.data.modifiedCount){
+                Swal.fire('User Role Updated')
+                refetch()
+            }
 
-    const handleMakeInstructor = (id,updatedRole)=>{
-        axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
-        .then(data=>{
-            console.log(data.data)
         }) 
-        refetch()
-                
-    }
 
+    }
 
 
     return (
@@ -49,10 +63,10 @@ const ManageUsersRow = ({ index, User, refetch }) => {
 
             <td className="capitalize font-bold">{role}</td>
             <td>
-                <button onClick={() => handleMakeAdmin(_id, 'admin')} disabled={role === 'admin'} className="btn btn-sm block m-1 btn-success">Admin</button>
+                <button onClick={() => handleRole(_id, 'admin')} disabled={role === 'admin'} className="btn btn-sm block m-1 btn-success">Admin</button>
             </td>
             <td>
-                <button onClick={() => handleMakeInstructor(_id, 'instructor')} disabled={role === 'instructor' || email === user?.email} className="btn btn-sm block m-1 btn-error">Instructor</button>
+                <button onClick={() => handleRole(_id, 'instructor')} disabled={role === 'instructor' || email === user?.email} className="btn btn-sm block m-1 btn-error">Instructor</button>
             </td>
 
         </tr>

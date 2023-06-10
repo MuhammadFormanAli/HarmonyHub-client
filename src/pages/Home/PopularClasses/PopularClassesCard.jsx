@@ -1,10 +1,12 @@
+import { Fade } from "react-awesome-reveal";
 
 const PopularClassesCard = ({course,loading}) => {
     if(loading){
         return <>loading</>
     }
     return (
-        <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
+    <Fade>
+            <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
             <img className="max-h-[200px]" src={course?.img} alt="Shoes" />
             <div className="  card-body  relative">
                 <h2 className="card-title">{course?.className}</h2>
@@ -19,6 +21,7 @@ const PopularClassesCard = ({course,loading}) => {
                 <p className="absolute top-2 right-2 p-2 font-bold bg-yellow-900 text-white">${course.price}</p>
             </div>
         </div>
+    </Fade>
     );
 };
 

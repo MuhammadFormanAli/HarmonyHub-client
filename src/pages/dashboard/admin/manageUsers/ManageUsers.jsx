@@ -20,9 +20,9 @@ const ManageUsers = () => {
     
     return (
         <div> 
-            <h1 className="text-center font-bold sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Manage Users</h1>
+            <h1 className="text-center font-bold uppercase sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Manage Users</h1>
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table table-zebra ">
                     {/* head */}
                     <thead>
                         <tr>

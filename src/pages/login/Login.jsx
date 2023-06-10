@@ -4,6 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogIn from '../../components/shared/socialLogin/SocialLogIn';
+import { BiHide, BiShow } from "react-icons/bi";
 
 const Login = () => {
     const { signIn} = useAuth()
@@ -64,7 +65,7 @@ const Login = () => {
                             className=" w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
                         />
                         <button className='btn btn-sm absolute top-1 right-1' type="button" onClick={togglePasswordVisibility}>
-                            {showPassword ? 'Hide' : 'Show'}
+                            {showPassword ? <BiShow></BiShow> : <BiHide> </BiHide>}
                         </button>
                     </div>
                     {errors.password && (

@@ -1,7 +1,8 @@
 
 
-const MyClassesRow = ({ index, instructorClass }) => {
-    const { className, price, status, enrolledStudents, img } = instructorClass
+const MyClassesRow = ({ index, instructorClass}) => {
+    const { className, price, status, enrolledStudents, img,feedback } = instructorClass
+  
 
     return (
         <tr>
@@ -31,10 +32,10 @@ const MyClassesRow = ({ index, instructorClass }) => {
                 <div className="font-bold">{status}</div>
             </td>
             <td>
-                <button className="btn btn-outline">Update</button>
+                <div >{feedback}</div>
             </td>
             <td>
-                <div >Feedback</div>
+                <button className="btn btn-outline">Update</button>
             </td>
 
 
