@@ -1,19 +1,21 @@
 
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
-// import useAxiosSecure from "../../hooks/useAxiosSecure";
+// import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
 
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
-    // const[axiosSecure] = useAxiosSecure
+    const[axiosSecure] = useAxiosSecure()
 const navigate = useNavigate()
 
     const handleSelectCourse = (course) => {
         
         if(!user){
-            alert('You Have To Login First')
+            Swal.fire('You Have To Login First')
             navigate('/login')
             return
         }
@@ -30,7 +32,7 @@ const navigate = useNavigate()
         //     console.log(result)
         // })
 
-        axios('http://localhost:5000/carts',cartItem)
+        axiosSecure.post('/carts',cartItem)
         .then(data =>{
             console.log(data.data)
         })

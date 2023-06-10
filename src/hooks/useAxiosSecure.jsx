@@ -13,12 +13,12 @@ const useAxiosSecure = () => {
   const navigate = useNavigate(); 
 
   useEffect(() => {
-    axiosSecure.interceptors.request.use((config) => {
+    axiosSecure.interceptors.request.use((request) => {
       const token = localStorage.getItem('access-token');
       if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        request.headers.Authorization = `Bearer ${token}`;
       }
-      return config;
+      return request;
     });
 
     axiosSecure.interceptors.response.use(

@@ -15,7 +15,7 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 const Banner = () => {
     const url = "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600"
     return (
-        <div  className=' bg-base-200'>
+        <div className=' bg-base-200'>
 
 
             <Swiper
@@ -31,18 +31,19 @@ const Banner = () => {
                 autoplay={{ delay: 4000 }}
             >
 
+
                 <SwiperSlide className='max-h-full'>
                     <div className="h-full ">
 
-                        <div className="flex p-6 items-center justify-center flex-col-reverse md:flex-row gap-5">
+                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
                             <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-6xl font-bold'>OFFER</h1>
-                                <h1 className='font-bold text-3xl'>5% off</h1>
+                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
+                                <h1 className='text-2xl font-bold'>OFFER</h1>
+                                <h1 className='font-bold text-xl'>5% off</h1>
                                 <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src={url} alt=""/>
+                                <img className='h-[300px] w-[400px]' src={url} alt="" />
                             </div>
 
                         </div>
@@ -51,32 +52,32 @@ const Banner = () => {
                 <SwiperSlide className='max-h-full'>
                     <div className="h-full ">
 
-                        <div className="flex p-6 items-center justify-center flex-col-reverse md:flex-row gap-5">
+                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
                             <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-6xl font-bold'> OFFER</h1>
-                                <h1 className='font-bold text-3xl'>10% off</h1>
+                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
+                                <h1 className='text-2xl font-bold'>OFFER</h1>
+                                <h1 className='font-bold text-xl'>5% off</h1>
                                 <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src={url} alt="" />
+                                <img className='h-[300px] w-[400px]' src={url} alt="" />
                             </div>
 
                         </div>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className='max-h-full'>
-                    <div  className="h-full ">
+                    <div className="h-full ">
 
-                        <div className="flex p-6 items-center justify-center flex-col-reverse md:flex-row gap-5">
+                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
                             <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-[25px] p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-6xl font-bold'> OFFER</h1>
-                                <h1 className='font-bold text-3xl'>15% off</h1>
+                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
+                                <h1 className='text-2xl font-bold'>OFFER</h1>
+                                <h1 className='font-bold text-xl'>5% off</h1>
                                 <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
                             </div>
                             <div>
-                            <img  className='h-[300px] w-[400px]' src={url} alt="" />
+                                <img className='h-[300px] w-[400px]' src={url} alt="" />
                             </div>
 
                         </div>

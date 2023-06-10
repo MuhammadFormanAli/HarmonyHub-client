@@ -1,12 +1,19 @@
-import axios from "axios";
+// import axios from "axios";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 
 const ManageClassesCard = ({ index, course,refetch }) => {
+    // document.querySelector('html').setAttribute('data-theme','light')
+
+    let a = document.querySelector('html')
+    console.log(a)
+
+    const [axiosSecure]=useAxiosSecure()
     console.log(course)
-    const { className, instructorName, instructorEmail, price, status, totalSeats, img, _id } = course
+    const { className, instructorName, instructorEmail, price, status, availableSeats, img, _id } = course
 
     const handleUpdateStatus = (id,updatedStatus)=>{
-        axios.put(`http://localhost:5000/classes/${id}`,{updatedStatus})
+        axiosSecure.put(`/classes/${id}`,{updatedStatus})
         .then(data=>{
             // Todo: swal 
             console.log('log from handleUpdateStatus',data)
@@ -36,7 +43,7 @@ const ManageClassesCard = ({ index, course,refetch }) => {
                 <div className="text-sm opacity-50">{instructorEmail}</div>
             </td>
 
-            <td>{totalSeats}</td>
+            <td>{availableSeats}</td>
             <td>${price}</td>
             <td>{status}</td>
             <td>

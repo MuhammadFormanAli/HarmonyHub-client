@@ -8,11 +8,9 @@ const ManageClasses = () => {
         return <>Loading from Manage Class Card</>
     }
 
-
+    // let a = document.querySelector('html').setAttribute('data-theme','light')
+   
     return (
-        //  Class Image, Class name, Instructor name, 
-        //Instructor email, Available seats, Price, Status(pending/approved/denied) 3 buttons( Approve, Deny and send feedback)
-        
         <div> 
             <h1 className="text-center font-bold sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Manage Classes</h1>
             <div className="overflow-x-auto">
