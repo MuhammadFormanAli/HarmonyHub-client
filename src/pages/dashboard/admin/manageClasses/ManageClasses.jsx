@@ -3,10 +3,8 @@ import ManageClassesCard from "./ManageClassesCard";
 
 
 const ManageClasses = () => {
-    const [classes, loading, refetch] = useClasses()
-    if(loading){
-        return <>Loading from Manage Class Card</>
-    }
+    const [classes, refetch] = useClasses()
+
 
     // let a = document.querySelector('html').setAttribute('data-theme','light')
    
