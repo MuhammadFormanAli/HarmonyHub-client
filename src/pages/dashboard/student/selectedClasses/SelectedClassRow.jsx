@@ -3,22 +3,26 @@ import Swal from "sweetalert2";
 
 const SelectedClassRow = ({ index, course, refetch }) => {
 
+    const handleAvailableSeats =  (courseId)=>{
+        axios.put(`http://localhost:5000/class/${courseId}`)
+        .then(data=>console.log(data.data))
+            
+    }
 
-    const handlePay = (id) => {
+
+    const handlePay = (id,courseId) => {
         const updatedStatus = 'paid'
         axios.put(`http://localhost:5000/cartItem/${id}`, { updatedStatus })
             .then(data => {
                 if (data.data.modifiedCount) {
                     Swal.fire('You have enrolled successfully')
+                    handleAvailableSeats(courseId)
                     refetch()
                 }
 
             })
     }
 
-    // const updateAvailableSeats = () => {
-
-    // }
 
     const handleDelete = (id) => {
         axios.delete(`http://localhost:5000/cart/delete/${id}`)
@@ -55,7 +59,7 @@ const SelectedClassRow = ({ index, course, refetch }) => {
             <td>${course?.price}</td>
 
             <th>
-                <button onClick={() => handlePay(course?._id)} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button>
+                <button disabled={course.availableSeats === 0} onClick={() => handlePay(course?._id, course.courseId)} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button>
             </th>
             <th>
                 <button onClick={() => handleDelete(course?._id)} className="btn btn-ghost btn-xs bg-red-700">Delete</button>

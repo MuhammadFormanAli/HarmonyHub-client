@@ -55,10 +55,12 @@ const navigate = useNavigate()
 
 
     return (
-        <div className="border card   rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  >
+        <div className="border card max-h-500px  rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  >
 
             <div className=" flex flex-col md:flex-row">
-                <img className=" p-1 max-h-[250px]" src={course.img} alt={course.name} />
+                <div className="">
+                <img className=" p-1 max-h-[250px] w-auto" src={course.img} alt={course.name} />
+                </div>
 
                 <div className="ml-4 flex flex-col mt-5 justify-between">
 

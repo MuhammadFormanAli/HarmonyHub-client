@@ -26,19 +26,10 @@ const PopularClasses = () => {
 
 
 
-
-
-
-
-
-
-
-
-
     return (
         <div>
             <h1 className="text-4xl font-bold text-center my-8"> Top Classes</h1>
-            <div className="grid gap-4 grid-cols-1  lg:grid-cols-2">
+            <div className="grid gap-2 grid-cols-1  lg:grid-cols-2">
                 {
                     popular.map(course=><PopularClassesCard 
                     key={course._id}

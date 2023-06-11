@@ -8,7 +8,10 @@ import DashboardHome from "../pages/dashboard/dashboardHome/DashboardHome";
 const Dashboard = () => {
   const  location=useLocation()
 
-    const [userRole] = useRole()
+    const [userRole,loading] = useRole()
+    if(loading){
+        return<>loading</>
+    }
     // console.log(location)
 
     return (

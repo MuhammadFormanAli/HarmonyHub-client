@@ -4,7 +4,7 @@ const EnrolledClassesCard = ({course}) => {
 
     return (
         <div className=" border p-1 card card-compact rounded-none flex md:flex-row bg-base-100 shadow-xl">
-            <img className="max-h-[200px]" src={course?.img} alt="Shoes" />
+            <img className="max-h-[200px] max-w-[250px]" src={course?.img} alt="Shoes" />
             <div className="  card-body  relative">
                 <h2 className="card-title">{course?.className}</h2>
                 <div>
