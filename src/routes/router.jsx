@@ -17,6 +17,9 @@ import AddClass from '../pages/dashboard/instructor/AddClass';
 import MyClasses from '../pages/dashboard/instructor/myClasses/MyClasses';
 import DashboardHome from '../pages/dashboard/dashboardHome/DashboardHome';
 import Feedback from '../pages/dashboard/admin/feedback/Feedback';
+import PrivetRoute from './PrivateRoute';
+import AdminPrivate from './AdminPrivate';
+import InstructorPrivate from './InstructorPrivate';
 
 
 
@@ -39,52 +42,55 @@ const router = createBrowserRouter([
           path:"login",
           element:<Login></Login>
         },
+
         {
           path:"classes",
           element:<Classes></Classes>
         },
+
         {
           path:"instructors",
           element:<Instructors></Instructors>
+          
         },
 
       ]
     },
     {
       path:"dashboard",
-      element:<Dashboard></Dashboard>, //will be private route
+      element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute> ,      //will be private route
       children:[
         {
           path:"dashboard-home",
-          element:<DashboardHome></DashboardHome> //will be student private route
+          element:<PrivetRoute><DashboardHome></DashboardHome></PrivetRoute>//will be student private route
         },
         {
           path:"selected-classes",
-          element:<SelectedClasses></SelectedClasses> //will be student private route
+          element:<PrivetRoute><SelectedClasses></SelectedClasses> </PrivetRoute>
         },
         {
           path:"enrolled-classes",
-          element:<EnrolledClasses></EnrolledClasses> //will be student private route
+          element:<PrivetRoute><EnrolledClasses></EnrolledClasses></PrivetRoute> //will be student private route
         },
         {
           path:"manage-classes",
-          element:<ManageClasses></ManageClasses> //will be admin private route
+          element:<AdminPrivate><ManageClasses></ManageClasses></AdminPrivate> //will be admin private route
         },
         {
           path:"manage-users",
-          element:<ManageUsers></ManageUsers> //will be admin private route
+          element:<AdminPrivate><ManageUsers></ManageUsers></AdminPrivate> //will be admin private route
         },
         {
           path:'manage-classes/feedback/:id',
-          element:<Feedback></Feedback>
+          element:<AdminPrivate><Feedback></Feedback></AdminPrivate>
         },
         {
           path:"add-class",
-          element:<AddClass></AddClass> 
+          element:<InstructorPrivate><AddClass></AddClass> </InstructorPrivate>
         },
         {
           path:"my-class",
-          element:<MyClasses></MyClasses> 
+          element:<InstructorPrivate><MyClasses></MyClasses></InstructorPrivate> 
         },
       ]
     }
