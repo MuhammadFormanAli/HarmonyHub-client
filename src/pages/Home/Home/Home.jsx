@@ -1,4 +1,5 @@
 
+import ContactUs from "../../../components/ContactUs";
 import useAuth from "../../../hooks/useAuth";
 import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
+            <ContactUs></ContactUs>
         </div>
     );
 };

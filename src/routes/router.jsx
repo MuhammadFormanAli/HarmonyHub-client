@@ -20,6 +20,7 @@ import Feedback from '../pages/dashboard/admin/feedback/Feedback';
 import PrivetRoute from './PrivateRoute';
 import AdminPrivate from './AdminPrivate';
 import InstructorPrivate from './InstructorPrivate';
+import Error from '../components/Error';
 
 
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<Error></Error>,
       children:[
         {
           path:"/",
@@ -57,11 +59,11 @@ const router = createBrowserRouter([
       ]
     },
     {
-      path:"dashboard",
+      path:"/dashboard",
       element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute> ,      //will be private route
       children:[
         {
-          path:"dashboard-home",
+          path:"/dashboard",
           element:<PrivetRoute><DashboardHome></DashboardHome></PrivetRoute>//will be student private route
         },
         {

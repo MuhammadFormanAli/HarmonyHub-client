@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Toggle from "../../themeToggle/Toggle";
+import ActiveLink from "../activeLink/ActiveLink";
 
 
 const Navbar = () => {
@@ -22,16 +23,16 @@ const Navbar = () => {
 
 
 	const navigationLinks = <>
-		<li><Link to="/">Home</Link></li>
-		<li><Link to="/instructors">Instructors</Link></li>
-		<li><Link to="/classes">Classes</Link></li>
+		<li><ActiveLink to="/">Home</ActiveLink></li>
+		<li><ActiveLink to="/instructors">Instructors</ActiveLink></li>
+		<li><ActiveLink to="/classes">Classes</ActiveLink></li>
 		{
-			!user && <li><Link to="/register">Register</Link></li>
+			!user && <li><ActiveLink to="/register">Register</ActiveLink></li>
 		}
 		{
 			user?.email &&
 			<>
-				<li><Link to="/dashboard">Dashboard</Link></li>
+				<li><ActiveLink to="/dashboard">Dashboard</ActiveLink></li>
 			</>
 		}
 	</>
