@@ -21,3 +21,33 @@ a{
     font-size: 16px;
     font-weight: 700;;
 }
+
+.swiper1{
+    background-image: url(/public/banner/banner1.jpg) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.swiper2{
+    background-image: url(/public/banner/banner2.jpg) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.swiper3{
+    background-image: url(/public/banner/banner3.jpg) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.swiper4{
+    background-image: url(/public/banner/banner4.jpg) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 20px auto;
+}

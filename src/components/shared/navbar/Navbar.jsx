@@ -6,10 +6,8 @@ import ActiveLink from "../activeLink/ActiveLink";
 
 
 const Navbar = () => {
-	const { logOut, user, loading } = useAuth()
-	if (loading) {
-		return <>loadingggg</>
-	}
+	const { logOut, user } = useAuth()
+
 
 	console.log(user)
 

@@ -1,7 +1,6 @@
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaArrowRight } from 'react-icons/fa'
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,11 +12,7 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 
 
 const Banner = () => {
-    const url = "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg?auto=compress&cs=tinysrgb&w=600"
     return (
-        <div className=' bg-base-200'>
-
-
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -25,69 +20,34 @@ const Banner = () => {
                 pagination={{
                     clickable: true,
                 }}
-                navigation={true}
+                
                 modules={[Pagination, Navigation, Autoplay]}
                 className="mySwiper h-[700px] md:h-96"
                 autoplay={{ delay: 4000 }}
             >
 
-
-                <SwiperSlide className='max-h-full'>
-                    <div className="h-full ">
-
-                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
-                            <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-2xl font-bold'>OFFER</h1>
-                                <h1 className='font-bold text-xl'>5% off</h1>
-                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
-                            </div>
-                            <div>
-                                <img className='h-[300px] w-[400px]' src={url} alt="" />
-                            </div>
-
-                        </div>
+                <SwiperSlide>
+                    <div className="swiper1 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">
+                    <h1 className="text-white text-center rounded-xl p-8 mx-8 bg-[#1d1a186b]">In the hands of a learner, a musical instrument becomes a magical gateway to self-expression and endless creativity</h1>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='max-h-full'>
-                    <div className="h-full ">
-
-                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
-                            <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-2xl font-bold'>OFFER</h1>
-                                <h1 className='font-bold text-xl'>5% off</h1>
-                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
-                            </div>
-                            <div>
-                                <img className='h-[300px] w-[400px]' src={url} alt="" />
-                            </div>
-
-                        </div>
+                <SwiperSlide>
+                    <div className="swiper2 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">
+                    <h1 className="text-white text-center rounded-xl p-8 mx-8 bg-[#1d1a186b]">In the hands of a learner, a musical instrument transforms from a mere instrument to a powerful vessel of self-discovery and personal growth</h1>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='max-h-full'>
-                    <div className="h-full ">
-
-                        <div className="flex p-2 items-center justify-center flex-col-reverse md:flex-row gap-1">
-                            <div>
-                                <h1 className='bg-[#FF6799] text-white font-bold text-2xl p-3 text-center'> Big Discount!!</h1>
-                                <h1 className='text-2xl font-bold'>OFFER</h1>
-                                <h1 className='font-bold text-xl'>5% off</h1>
-                                <button className='p-3 border-none btn rounded-full text-white bg-yellow-900'>Shop Now<FaArrowRight /></button>
-                            </div>
-                            <div>
-                                <img className='h-[300px] w-[400px]' src={url} alt="" />
-                            </div>
-
-                        </div>
+                <SwiperSlide>
+                    <div className="swiper3 flex  items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">
+                    <h1 className="text-white text-center rounded-xl p-8 mx-8 bg-[#1d1a186b]">A musical instrument is not just an object; it is a teacher that guides us to discover the depths of our own musicality</h1>
                     </div>
                 </SwiperSlide>
+
+                
 
             </Swiper>
 
 
-        </div>
+       
     );
 };
 

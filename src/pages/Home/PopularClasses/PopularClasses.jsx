@@ -4,43 +4,28 @@ import PopularClassesCard from "./PopularClassesCard";
 import axios from "axios";
 
 const PopularClasses = () => {
-    // const [popular, setPopular] = useState([])
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/topclasses')
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             setPopular(result)
-    //         })
-    // }, [])
-    const {data: popular = [], loading} = useQuery({
+    const { data: popular = [], loading } = useQuery({
         queryKey: ['popular'],
-        queryFn: async() => {
+        queryFn: async () => {
             const res = await axios(`http://localhost:5000/topclasses`)
-
             return res.data;
         }
     })
 
-
-
-
-
     return (
-        <div>
-            <h1 className="text-4xl font-bold text-center my-8"> Top Classes</h1>
+        <div className="my-5">
+            <div className="swiper4 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">
+                <h1 className="text-white my-8 text-center rounded-xl p-8 mx-8 bg-[#1d1a186b]">Popular Classes</h1>
+            </div>
             <div className="grid gap-2 grid-cols-1  lg:grid-cols-2">
                 {
-                    popular.map(course=><PopularClassesCard 
-                    key={course._id}
-                    course={course}
-                    loading={loading}
+                    popular.map(course => <PopularClassesCard
+                        key={course._id}
+                        course={course}
+                        loading={loading}
                     ></PopularClassesCard>)
                 }
-                
-
             </div>
-           
         </div>
     );
 };
