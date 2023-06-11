@@ -41,20 +41,7 @@ const AdminDashboard = () => {
                 <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Approved Classes :{classes.map(x => x.status === 'approved').length}</h1>
                 <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Pending Classes :{classes.map(x => x.status === 'pending').length}</h1>
                 <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Denied Classes :{classes.map(x => x.status === 'denied').length}</h1>
-
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
         </div>
     );
 };
