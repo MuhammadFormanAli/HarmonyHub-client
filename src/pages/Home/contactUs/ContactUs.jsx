@@ -12,7 +12,7 @@ const ContactUs = () => {
       <div className='flex flex-col md:flex-row gap-2'>
         <div className='w-full md:w-1/2 grid grid-cols-2 gap-1'>
           <JackInTheBox>
-            <div className='bg-slate-200 text-center p-4 card' data-aos="fade-down-right">
+            <div className='bg-slate-200 text-center p-4 card'>
               <span className="block w-fit mx-auto p-1"><FaAddressCard></FaAddressCard></span>
               <h1 className='font-bold text-xl'>Address</h1>
               <p className='font-bold text-lg'>Aladan street</p>
@@ -20,7 +20,7 @@ const ContactUs = () => {
             </div>
           </JackInTheBox>
           <JackInTheBox>
-            <div className='bg-slate-200 text-center p-4 card  ' data-aos="fade-down-left">
+            <div className='bg-slate-200 text-center p-4 card'>
               
               <span className="block w-fit mx-auto p-1"><FaPhone></FaPhone> </span>
               <h1 className='font-bold text-xl'>Call us</h1>
@@ -29,18 +29,16 @@ const ContactUs = () => {
             </div>
           </JackInTheBox>
           <JackInTheBox>
-            <div className='bg-slate-200 text-center p-4 card' data-aos="fade-up-right">
+            <div className='bg-slate-200 text-center p-4 card'>
             <span className="block w-fit mx-auto p-1"><MdEmail></MdEmail></span>
-              <img src="/images/email.png" alt="" className='w-[45px] text block mx-auto' />
               <h1 className='font-bold text-xl'>Email Us</h1>
               <p className='font-bold text-lg'>info@gmail.com</p>
               <p className='font-bold text-lg'>info@gmail.com</p>
             </div>
           </JackInTheBox>
           <JackInTheBox>
-            <div className='bg-slate-200 text-center p-4 card ' data-aos="fade-up-left">
+            <div className='bg-slate-200 text-center p-4 card'>
             <span className="block w-fit mx-auto p-1"><FaClock></FaClock></span>
-              <img src="/images/time.png" alt="" className='w-[45px] text block mx-auto' />
               <h1 className='font-bold text-xl'>Working Hours</h1>
               <p className='font-bold text-lg'>Mon-fri : 9am - 5pm</p>
               <p className='font-bold text-lg'>Sunday: 9am - 1pm </p>
@@ -49,7 +47,7 @@ const ContactUs = () => {
         </div>
 
         <section className="bg-slate-200 py-2 w-full md:w-1/2 rounded-md">
-          <div className="container mx-auto py-8" data-aos="zoom-in-left">
+          <div className="container mx-auto py-8">
             <div className="max-w-lg mx-auto">
               <div className="mb-2">
                 <input

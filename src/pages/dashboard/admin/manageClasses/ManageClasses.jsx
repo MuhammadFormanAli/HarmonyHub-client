@@ -1,9 +1,10 @@
-import useClasses from "../../../../hooks/useClasses";
+import useAllClasses from "../../../../hooks/useAllClasses";
+// import useClasses from "../../../../hooks/useClasses";
 import ManageClassesCard from "./ManageClassesCard";
 
 
 const ManageClasses = () => {
-    const [classes, refetch] = useClasses()
+    const [allClasses, ,refetch] = useAllClasses()
 
 
     // let a = document.querySelector('html').setAttribute('data-theme','light')
@@ -28,7 +29,7 @@ const ManageClasses = () => {
                     <tbody>
                         {/* row 1 */}
 
-                        {classes?.map((classItem,index) => 
+                        {allClasses?.map((classItem,index) => 
                         <ManageClassesCard
                         key={classItem._id}
                         course={classItem}

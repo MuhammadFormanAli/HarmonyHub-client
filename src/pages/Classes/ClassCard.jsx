@@ -10,23 +10,21 @@ import useRole from "../../hooks/useRole";
 
 const ClassCard = ({ course }) => {
     const { user } = useAuth()
-    const[axiosSecure] = useAxiosSecure()
-    const[userRole]=useRole()
-    const {role}=userRole
-   
-
-const navigate = useNavigate()
+    const [userRole] = useRole()
+    const [axiosSecure] = useAxiosSecure()
+    const { role } = userRole
+    const navigate = useNavigate()
 
     const handleSelectCourse = (course) => {
-        
-        if(!user){
+
+        if (!user) {
             Swal.fire('You Have To Login First')
             navigate('/login')
             return
         }
 
-        const {img,className,instructorName,availableSeats,price,_id }= course
-        const cartItem = {img,className,instructorName,availableSeats,price, courseId:_id,studentEmail:user.email, payStatus:'unpaid'}
+        const { img, className, instructorName, availableSeats, price, _id } = course
+        const cartItem = { img, className, instructorName, availableSeats, price, courseId: _id, studentEmail: user.email, payStatus: 'unpaid' }
         // console.log(cartItem)
 
         // fetch('http://localhost:5000/carts',{
@@ -37,21 +35,17 @@ const navigate = useNavigate()
         //     console.log(result)
         // })
 
-        axiosSecure.post('/carts',cartItem)
-        .then(data =>{
-            if(data.data.insertedId){
-                Swal.fire('Added to card')
-            }
-            if(data.data.message){
-                Swal.fire(`${data.data.message}`)
-            }
-            console.log(data.data)
-        })
+        axiosSecure.post('/carts', cartItem)
+            .then(data => {
+                if (data.data.insertedId) {
+                    Swal.fire('Added to card')
+                }
+                if (data.data.message) {
+                    Swal.fire(`${data.data.message}`)
+                }
+                console.log(data.data)
+            })
     }
-
-//    Todo:
-
-    
 
 
     return (
@@ -59,7 +53,7 @@ const navigate = useNavigate()
 
             <div className=" flex flex-col md:flex-row">
                 <div className="">
-                <img className=" p-1 max-h-[250px] w-auto" src={course.img} alt={course.name} />
+                    <img className=" p-1 max-h-[250px] w-auto" src={course.img} alt={course.name} />
                 </div>
 
                 <div className="ml-4 flex flex-col mt-5 justify-between">

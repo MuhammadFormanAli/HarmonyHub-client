@@ -3,12 +3,14 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Toggle from "../../themeToggle/Toggle";
 import ActiveLink from "../activeLink/ActiveLink";
+import Loading from "./Loading";
 
 
 const Navbar = () => {
-	const { logOut, user } = useAuth()
-
-
+	const { logOut, user, loading } = useAuth()
+	if(loading){
+		return <Loading></Loading>
+	}
 	console.log(user)
 
 	const handleLogout = () => {
@@ -16,7 +18,7 @@ const Navbar = () => {
 			console.log(result)
 			Swal.fire('Log out successful')
 		})
-			.catch(error => console.log(error))
+		.catch(error => console.log(error))
 	}
 
 

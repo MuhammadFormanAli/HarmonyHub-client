@@ -23,6 +23,7 @@ const AddClass = () => {
         .then(data =>{
             console.log(data.data)
             if(data.data.insertedId){
+                console.log(data.data)
                 Swal.fire('Class Added Successfully')
             }
             reset()

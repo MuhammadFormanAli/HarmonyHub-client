@@ -5,10 +5,10 @@ import axios from "axios";
 
 
 const useRole = () => {
-    const {user,loading} = useAuth()
-    const {data: userRole = {}, refetch} = useQuery({
+    const {user} = useAuth()
+    const {data: userRole = {}, isLoading:loading, refetch} = useQuery({
         queryKey: ['userRole',user?.email],
-        enabled:!loading,
+        
         queryFn: async() => {
             const res = await axios(`http://localhost:5000/user/${user?.email}`);
             return res.data;

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const ManageClassesCard = ({ index, course, refetch }) => {
     const [axiosSecure] = useAxiosSecure()
-    console.log(course)
+    // console.log(course)
     const { className, instructorName, instructorEmail, price, status, availableSeats, img, _id ,feedback} = course
 
     const handleUpdateStatus = (id, updatedStatus) => {

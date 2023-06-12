@@ -27,7 +27,7 @@ const Footer = () => {
         
       </footer>
       <div className="w-full block flex items-center justify-center">
-        <p className=" w-full  text-center  p-10 bg-neutral text-neutral-content " >Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+        <p className=" w-full  text-center  p-10 bg-neutral text-neutral-content " >Copyright © 2023 - All right reserved by HarmonyHub</p>
       </div>
 
     </>

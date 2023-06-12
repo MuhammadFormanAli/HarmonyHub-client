@@ -7,11 +7,14 @@ const PopularClasses = () => {
     const { data: popular = [], loading } = useQuery({
         queryKey: ['popular'],
         queryFn: async () => {
-            const res = await axios(`http://localhost:5000/topclasses`)
+            const res = await axios(`http://localhost:5000/top-classes`)
             return res.data;
         }
     })
 
+
+
+    
     return (
         <div className="my-5">
             <div className="swiper4 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">

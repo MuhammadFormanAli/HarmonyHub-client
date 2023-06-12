@@ -2,23 +2,28 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure"
 import useAuth from "../../../../hooks/useAuth";
 import MyClassesRow from "./MyClassesRow";
+import Loading from "../../../../components/shared/navbar/Loading";
+
 
 
 const MyClasses = () => {
 
     const [axiosSecure] = useAxiosSecure()
-    const {user,} = useAuth()
+    const {user} = useAuth()
+    
 
-    const { data: instructorClasses = [],isLoading:loading, refetch } = useQuery({
+
+    const { data: instructorClasses = [], isLoading:loading, refetch } = useQuery({
         queryKey: ['instructorClasses',user?.email],
-        
         queryFn: async () => {
-            const res = await axiosSecure(`http://localhost:5000/instructor/classes?email=${user?.email}`)
+            const res = await axiosSecure(`instructor-classes?email=${user?.email}`)
             return res.data;
         }
     })
 
-
+if(loading){
+    return <Loading></Loading>
+}
 
     return (
         <div>

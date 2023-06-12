@@ -5,17 +5,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogIn from '../../components/shared/socialLogin/SocialLogIn';
 import Swal from 'sweetalert2';
 import { BiHide, BiShow } from 'react-icons/bi';
+import axios from 'axios';
 
 const Register = () => {
 	const { createUser, manageUser } = useAuth()
-
 	const navigate = useNavigate()
 	const location = useLocation()
-
 	const from = location.state?.from?.pathname || '/'
-
-
 	const [showPassword, setShowPassword] = useState(false);
+	const [error,setError] = useState('')
 
 	const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
 	const password = watch('password', '');
@@ -25,42 +23,41 @@ const Register = () => {
 	const onSubmit = data => {
 		const { name, email, password, photo: photo } = data
 		const role = 'student'
+		
 		createUser(email, password)
 			.then(result => {
 				// Todo:sweet alert 
 				manageUser(name, photo)
 					.then(result => {
 						const saveUser = { name, email, photo, role }
-						fetch('http://localhost:5000/users', {
-							method: 'POST',
-							headers: { 'content-type': 'application/json' },
-							body: JSON.stringify(saveUser)
-						})
-						.then(res => res.json())
-						.then(result => {
-							console.log(result)
-							if (result.insertedId) {
-								reset()
-								Swal.fire('SighUp successful')
-								navigate(from, { replace: true })
-							}
+
+						axios.post('http://localhost:5000/users', {saveUser})
+							.then(data => {
+								console.log(data.data)
+								if (data.data.insertedId) {
+									reset()
+									Swal.fire('SighUp successful')
+									navigate(from, { replace: true })
+								}
 							})
+
 						console.log(result)
 						console.log('Profile Updated')
 					})
 					.catch(error => {
-						console.log(error.message)
+						setError(error.message)
 					})
 				console.log(result)
 
 			})
 			.catch(error => {
-				console.log(error)
+				setError(error.message)
 			})
 
 
 		console.log(name, email, password, photo, role)
 		reset()
+		setError('')
 	};
 
 
@@ -104,7 +101,7 @@ const Register = () => {
 							className=" w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
 						/>
 						<button className='btn btn-sm absolute top-1 right-1' type="button" onClick={togglePasswordVisibility}>
-							{showPassword ?  <BiShow></BiShow>:<BiHide></BiHide>}
+							{showPassword ? <BiShow></BiShow> : <BiHide></BiHide>}
 						</button>
 					</div>
 					{errors.password && (
@@ -150,6 +147,7 @@ const Register = () => {
 					<p>Already have an account <Link to="/login" className='text-blue-700 underline'>Login</Link></p>
 				</div>
 			</form>
+			<small className='text-red-600 text-center block m-1'>{error}</small>
 			<SocialLogIn></SocialLogIn>
 		</div>
 	);

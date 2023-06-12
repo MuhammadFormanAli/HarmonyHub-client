@@ -1,22 +1,27 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const SelectedClassRow = ({ index, course, refetch }) => {
 
-    const handleAvailableSeats =  (courseId)=>{
-        axios.put(`http://localhost:5000/class/${courseId}`)
-        .then(data=>console.log(data.data))
+    const[axiosSecure]=useAxiosSecure()
+
+
+
+    // const handleAvailableSeats =  (courseId)=>{
+    //     axios.put(`http://localhost:5000/class/${courseId}`)
+    //     .then(data=>console.log(data.data))
             
-    }
+    // }
 
 
-    const handlePay = (id,courseId) => {
+    const handlePay = (id) => {
         const updatedStatus = 'paid'
         axios.put(`http://localhost:5000/cartItem/${id}`, { updatedStatus })
             .then(data => {
                 if (data.data.modifiedCount) {
                     Swal.fire('You have enrolled successfully')
-                    handleAvailableSeats(courseId)
+                    // handleAvailableSeats(courseId)
                     refetch()
                 }
 
@@ -25,7 +30,7 @@ const SelectedClassRow = ({ index, course, refetch }) => {
 
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/cart/delete/${id}`)
+        axiosSecure.delete(`http://localhost:5000/cart/delete/${id}`)
         .then(data=>{
             if(data.data.deletedCount){
                 Swal.fire('Deleted successful')

@@ -5,7 +5,7 @@ import SelectedClassRow from "./SelectedClassRow";
 
 const SelectedClasses = () => {
 
-    const [carts,refetch] = useCarts()
+    const [carts, refetch] = useCarts()
     
     const selectedCourses = carts?.filter(item => item.payStatus === 'unpaid')
     return (
