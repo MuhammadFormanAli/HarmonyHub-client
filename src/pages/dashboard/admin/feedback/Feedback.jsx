@@ -2,6 +2,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -31,6 +32,7 @@ const Feedback = () => {
 
     return (
         <div className="flex items-stretch justify-center flex-col h-full">
+            <Helmet><title>Feedback - HarmonyHub</title></Helmet>
             <h1 className="bg-cyan-900 text-stone-50 font-bold p-10 text-xl md:text-3xl text-center">Send Your Feedback To Instructor</h1>
             <form onSubmit={handleFeedback}>
             

@@ -2,6 +2,7 @@ import { Slide } from "react-awesome-reveal";
 
 
 const PopularInstructorCard = ({instructor}) => {
+    
     return (
         <Slide>
                     <div className=" border p-1 card card-compact rounded-none flex md:flex-col bg-base-100 shadow-xl">

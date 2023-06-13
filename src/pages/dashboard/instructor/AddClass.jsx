@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const AddClass = () => {
@@ -33,6 +34,7 @@ const AddClass = () => {
 
     return (
         <div className='mb-4 w-full  mx-auto bg-base-300 p-4 my-4 rounded-md'>
+            <Helmet><title>Add Class - HarmonyHub</title></Helmet>
             <h1 className="text-center font-bold sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Add A Classes</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 

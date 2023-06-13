@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import Banner from "../Banner/Banner";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
     }
     return (
         <div>
+            <Helmet> <title>Home - HarmonyHub</title></Helmet>
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>

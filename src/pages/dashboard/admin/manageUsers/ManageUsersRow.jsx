@@ -10,25 +10,6 @@ const ManageUsersRow = ({ index, User, refetch }) => {
 
     const { name, email, role, photo, _id } = User
 
-
-    // const handleMakeAdmin = (id,updatedRole)=>{
-    //     axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
-    //     .then(data=>{
-    //         console.log(data.data)
-    //         refetch()
-    //     }) 
-                
-    // }
-
-    // const handleMakeInstructor = (id,updatedRole)=>{
-    //     axios.put(`http://localhost:5000/users/${id}`,{updatedRole})
-    //     .then(data=>{
-    //         console.log(data.data)
-    //     }) 
-    //     refetch()
-                
-    // }
-
     const handleRole = (id,updatedRole)=>{
         axiosSecure.put(`/users/${id}`,{updatedRole})
         .then(data=>{
@@ -41,7 +22,6 @@ const ManageUsersRow = ({ index, User, refetch }) => {
         }) 
 
     }
-
 
     return (
         <tr>

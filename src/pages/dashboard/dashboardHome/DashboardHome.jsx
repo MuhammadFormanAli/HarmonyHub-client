@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useRole from "../../../hooks/useRole";
 import AdminDashboard from "../admin/AdminDashboard";
 import InstructorDashboardHome from "../instructor/InstructorDashboardHome";
@@ -7,6 +8,9 @@ const DashboardHome = () => {
     const [userRole] = useRole()
 
     return (
+<>
+        <Helmet><title>Dashboard - HarmonyHub</title></Helmet>
+
         <div>
            {
             userRole.role === "admin" && <AdminDashboard></AdminDashboard>
@@ -18,6 +22,7 @@ const DashboardHome = () => {
             userRole.role === "student" && <StudentDashboardHome></StudentDashboardHome>
            }
         </div>
+</>
     );
 };
 

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import ManageUsersRow from "./ManageUsersRow";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const ManageUsers = () => {
@@ -20,6 +21,7 @@ const ManageUsers = () => {
     
     return (
         <div> 
+            <Helmet><title>Manage Users - HarmonyHub</title></Helmet>
             <h1 className="text-center font-bold uppercase sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Manage Users</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra ">
