@@ -27,33 +27,49 @@ const CheckoutForm = ({ price, courseDetails }) => {
     }, [price, axiosSecure])
 
 
+
+
+
+
     const handleSubmit = async (event) => {
         event.preventDefault()
+
 
         if (!stripe || !elements) {
             return
         }
+
+
 
         const card = elements.getElement(CardElement)
         if (card === null) {
             return
         }
 
+
+
         const { error } = await stripe.createPaymentMethod( {
                 type: 'card',
                 card
             })
+
+
 
         if (error) {
             console.log('error', error)
             setCardError(error.message)
         }
 
+
+
         else {
             setCardError('');
         }
 
+
+
         setProcessing(true)
+
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -72,19 +88,27 @@ const CheckoutForm = ({ price, courseDetails }) => {
         if (confirmError) {
             console.log('confirmError', confirmError)
         }
+
+
         console.log('paymentIntent', paymentIntent)
         setProcessing(false)
+
 
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id)
 
+
+
             const payment = {
                 email: user?.email,
-                transitionId: paymentIntent.id,
+                transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
                 courseDetails,
             }
+
+
+
 
             axiosSecure.post('payments', payment)
                 .then(res => {
@@ -97,6 +121,9 @@ const CheckoutForm = ({ price, courseDetails }) => {
         }
 
     }
+
+
+
 
 
     return (
@@ -125,6 +152,7 @@ const CheckoutForm = ({ price, courseDetails }) => {
                     </button>
                 </form>
             </div>
+            
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
 

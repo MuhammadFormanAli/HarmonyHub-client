@@ -22,6 +22,7 @@ import AdminPrivate from './AdminPrivate';
 import InstructorPrivate from './InstructorPrivate';
 import Error from '../components/Error';
 import Payment from '../pages/dashboard/student/payment/Payment';
+import PaymentsHistory from '../pages/dashboard/student/PaymentsHistory/PaymentsHistory';
 
 
 
@@ -63,6 +64,7 @@ const router = createBrowserRouter([
       path:"/dashboard",
       element:<PrivetRoute><Dashboard></Dashboard></PrivetRoute> ,      //will be private route
       children:[
+        //student routes
         {
           path:"/dashboard",
           element:<PrivetRoute><DashboardHome></DashboardHome></PrivetRoute>//will be student private route
@@ -79,6 +81,13 @@ const router = createBrowserRouter([
           path:"enrolled-classes",
           element:<PrivetRoute><EnrolledClasses></EnrolledClasses></PrivetRoute> //will be student private route
         },
+        {
+          path:'payments-history',
+          element:<PaymentsHistory></PaymentsHistory>
+        },
+
+
+        //admin routes
         {
           path:"manage-classes",
           element:<AdminPrivate><ManageClasses></ManageClasses></AdminPrivate> //will be admin private route

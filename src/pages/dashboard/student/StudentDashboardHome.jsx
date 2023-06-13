@@ -1,9 +1,10 @@
+import PaymentsHistory from "./PaymentsHistory/PaymentsHistory";
 
 
 const StudentDashboardHome = () => {
     return (
         <div>
-            Student DahsBoard Home
+            <PaymentsHistory></PaymentsHistory>
         </div>
     );
 };

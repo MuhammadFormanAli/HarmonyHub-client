@@ -25,15 +25,6 @@ const ClassCard = ({ course }) => {
 
         const { img, className, instructorName, availableSeats, price, _id } = course
         const cartItem = { img, className, instructorName, availableSeats, price, courseId: _id, studentEmail: user.email, payStatus: 'unpaid' }
-        // console.log(cartItem)
-
-        // fetch('http://localhost:5000/carts',{
-        //     method: 'POST',
-        //     headers: { 'content-type': 'application/json' },
-        //     body: JSON.stringify(cartItem)
-        // }).then(res => res.json()).then(result =>{
-        //     console.log(result)
-        // })
 
         axiosSecure.post('/carts', cartItem)
             .then(data => {
@@ -41,7 +32,7 @@ const ClassCard = ({ course }) => {
                     Swal.fire('Added to card')
                 }
                 if (data.data.message) {
-                    Swal.fire(`${data.data.message}`)
+                    Swal.fire(`${data.data.message.toUpperCase()}`)
                 }
                 console.log(data.data)
             })

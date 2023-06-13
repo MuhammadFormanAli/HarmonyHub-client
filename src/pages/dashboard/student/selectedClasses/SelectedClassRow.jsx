@@ -1,44 +1,38 @@
-import axios from "axios";
+// import axios from "axios";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 
 const SelectedClassRow = ({ index, course, refetch }) => {
 
-    const[axiosSecure]=useAxiosSecure()
-
-
-
-    // const handleAvailableSeats =  (courseId)=>{
-    //     axios.put(`http://localhost:5000/class/${courseId}`)
-    //     .then(data=>console.log(data.data))
-            
-    // }
-
-
-    const handleUpdatePayStatus = (id) => {
-        const updatedStatus = 'paid'
-        axios.put(`http://localhost:5000/cartItem/${id}`, { updatedStatus })
-            .then(data => {
-                if (data.data.modifiedCount) {
-                    Swal.fire('You have enrolled successfully')
-                    // handleAvailableSeats(courseId)
-                    refetch()
-                }
-
-            })
-    }
-
+    const [axiosSecure] = useAxiosSecure()
 
     const handleDelete = (id) => {
-        axiosSecure.delete(`http://localhost:5000/cart/delete/${id}`)
-        .then(data=>{
-            if(data.data.deletedCount){
-                Swal.fire('Deleted successful')
-                refetch()
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`http://localhost:5000/cart/delete/${id}`)
+                    .then(data => {
+                        if (data.data.deletedCount) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            refetch()
+                        }
+                    })
             }
         })
-        
+
     }
     return (
 
@@ -65,8 +59,8 @@ const SelectedClassRow = ({ index, course, refetch }) => {
             <td>${course?.price}</td>
 
             <th>
-                
-                
+
+
                 <Link to={`payment/${course?._id}`}><button disabled={course.availableSeats === 0} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button></Link>
             </th>
             <th>
