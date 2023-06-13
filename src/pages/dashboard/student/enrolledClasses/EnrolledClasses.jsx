@@ -5,6 +5,7 @@ const EnrolledClasses = () => {
     const [carts] = useCarts()
     
     const enrolledClasses = carts?.filter(item => item.payStatus === "paid")
+    
     // console.log(enrolledClasses)
 
     return (

@@ -20,7 +20,7 @@ const PaymentsHistory = () => {
         setPayments(data.data)
       })
 
-  }, [])
+  }, [axiosSecure, user?.email])
 
 
   return (
