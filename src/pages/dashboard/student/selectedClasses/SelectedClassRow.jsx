@@ -16,7 +16,7 @@ const SelectedClassRow = ({ index, course, refetch }) => {
     // }
 
 
-    const handlePay = (id) => {
+    const handleUpdatePayStatus = (id) => {
         const updatedStatus = 'paid'
         axios.put(`http://localhost:5000/cartItem/${id}`, { updatedStatus })
             .then(data => {
@@ -65,8 +65,9 @@ const SelectedClassRow = ({ index, course, refetch }) => {
             <td>${course?.price}</td>
 
             <th>
-                <button disabled={course.availableSeats === 0} onClick={() => handlePay(course?._id, course.courseId)} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button>
-                <Link to={`payment/${course?._id}`}>Pay</Link>
+                
+                
+                <Link to={`payment/${course?._id}`}><button disabled={course.availableSeats === 0} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button></Link>
             </th>
             <th>
                 <button onClick={() => handleDelete(course?._id)} className="btn btn-ghost btn-xs bg-red-700">Delete</button>

@@ -1,8 +1,8 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./checkoutForm";
 import { useParams } from "react-router-dom";
 import useCarts from "../../../../hooks/useCarts";
+import CheckoutForm from "./CheckoutForm";
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK)
@@ -14,6 +14,7 @@ const Payment = () => {
     const item = cart.find(element => element?._id == cartId)
 
     const courseDetails = {
+        cartId,
         classId: item?.courseId,
         className: item?.className,
         instructorName: item?.instructorName,

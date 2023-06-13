@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({ price, courseDetails }) => {
-
     const stripe = useStripe()
     const elements = useElements()
     const { user } = useAuth()
@@ -27,10 +26,11 @@ const CheckoutForm = ({ price, courseDetails }) => {
         }
     }, [price, axiosSecure])
 
+
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if (!stripe) {
+        if (!stripe || !elements) {
             return
         }
 
@@ -39,16 +39,14 @@ const CheckoutForm = ({ price, courseDetails }) => {
             return
         }
 
-        const { error } = await stripe.createPaymentMethod(
-            {
+        const { error } = await stripe.createPaymentMethod( {
                 type: 'card',
                 card
-            }
-        )
+            })
 
         if (error) {
             console.log('error', error)
-            setCardError(error)
+            setCardError(error.message)
         }
 
         else {
@@ -92,6 +90,7 @@ const CheckoutForm = ({ price, courseDetails }) => {
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {
+
                         Swal.fire('Payment Successful')
                     }
                 })
@@ -101,29 +100,31 @@ const CheckoutForm = ({ price, courseDetails }) => {
 
 
     return (
-        <div className="w-full my-8 ">
-            <h1 className="text-xl text-cyan-900 font-bold pl-2">Please Pay</h1>
-            <form className="min-w-[450px] m-2" onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+        <div className="w-[450px] my-8 ">
+            <h1 className="text-xl text-cyan-900 font-bold pl-2 underline">PLEASE PAY</h1>
+            <div className="border-4">
+                <form className='m-5' onSubmit={handleSubmit}>
+                    <CardElement
+                        options={{
+                            style: {
+                                base: {
+                                    fontSize: '16px',
+                                    color: '#424770',
+                                    '::placeholder': {
+                                        color: '#aab7c4',
+                                    },
+                                },
+                                invalid: {
+                                    color: '#9e2146',
                                 },
                             },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                <button className="btn btn-info btn-sm mt-1" type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay
-                </button>
-            </form>
+                        }}
+                    />
+                    <button className="btn btn-info btn-sm mt-5" type="submit" disabled={!stripe || !clientSecret || processing}>
+                        Pay
+                    </button>
+                </form>
+            </div>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
 
