@@ -21,6 +21,7 @@ import PrivetRoute from './PrivateRoute';
 import AdminPrivate from './AdminPrivate';
 import InstructorPrivate from './InstructorPrivate';
 import Error from '../components/Error';
+import Payment from '../components/payment/Payment';
 
 
 
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
         {
           path:"selected-classes",
           element:<PrivetRoute><SelectedClasses></SelectedClasses> </PrivetRoute>
+        },
+        {
+          path:'selected-classes/payment/:id',
+          element:<PrivetRoute><Payment></Payment></PrivetRoute>
         },
         {
           path:"enrolled-classes",

@@ -1,6 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const SelectedClassRow = ({ index, course, refetch }) => {
 
@@ -65,6 +66,7 @@ const SelectedClassRow = ({ index, course, refetch }) => {
 
             <th>
                 <button disabled={course.availableSeats === 0} onClick={() => handlePay(course?._id, course.courseId)} className="btn btn-ghost btn-xs bg-yellow-900 mr-2">Pay</button>
+                <Link to={`payment/${course?._id}`}>Pay</Link>
             </th>
             <th>
                 <button onClick={() => handleDelete(course?._id)} className="btn btn-ghost btn-xs bg-red-700">Delete</button>

@@ -3,8 +3,9 @@ import { FaHome } from "react-icons/fa";
 import { ImMenu } from "react-icons/im";
 import useRole from "../hooks/useRole";
 
-import ActiveLink from "../components/shared/activeLink/ActiveLink";
-import { Outlet } from "react-router-dom";
+
+import { Link, Outlet } from "react-router-dom";
+import Loading from "../components/shared/navbar/Loading";
 
 
 
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
     const [userRole,loading] = useRole()
     if(loading){
-        return<>loading</>
+        return<Loading></Loading>
     }
     // console.log(location)
 
@@ -31,21 +32,21 @@ const Dashboard = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                <li><ActiveLink to="/dashboard">  Dashboard Home</ActiveLink></li>
+                <li><Link to="/dashboard">  Dashboard Home</Link></li>
 
                     {/* Sidebar content here */}
                     {userRole?.role === 'admin' &&
                         <>
-                            <li><ActiveLink to="manage-classes"> <span className="flex item-center gap-1 justify-center"> Manage Classes</span> </ActiveLink></li>
-                            <li><ActiveLink to="manage-users">Mange Users</ActiveLink></li>
+                            <li><Link to="manage-classes"> <span className="flex item-center gap-1 justify-center"> Manage Classes</span> </Link></li>
+                            <li><Link to="manage-users">Mange Users</Link></li>
                         </>
 
                     }
 
                     {userRole?.role === 'instructor' &&
                         <>
-                            <li><ActiveLink to="add-class">Add A Class</ActiveLink></li>
-                            <li><ActiveLink to="my-class">My Classes</ActiveLink></li>
+                            <li><Link to="add-class">Add A Class</Link></li>
+                            <li><Link to="my-class">My Classes</Link></li>
                     
                         </>
 
@@ -53,18 +54,18 @@ const Dashboard = () => {
 
                     {userRole?.role === 'student' &&
                         <>
-                            <li><ActiveLink to="selected-classes">My Selected Classes</ActiveLink></li>
-                            <li><ActiveLink to="enrolled-classes">My Enrolled Classes</ActiveLink></li>
-                            <li><ActiveLink to="#payhistory">Payments History</ActiveLink></li>
+                            <li><Link to="selected-classes">My Selected Classes</Link></li>
+                            <li><Link to="enrolled-classes">My Enrolled Classes</Link></li>
+                            <li><Link to="#pay-history">Payments History</Link></li>
                         </>
 
                     }
 
 
                     <div className="divider"></div>
-                    <li><ActiveLink to="/"><span className="flex item-center gap-1 justify-center"><FaHome></FaHome> Home</span></ActiveLink> </li>
-                    <li><ActiveLink to="/instructors">Instructors</ActiveLink></li>
-                    <li><ActiveLink to="/classes">Classes</ActiveLink></li>
+                    <li><Link to="/"><span className="flex item-center gap-1 justify-center"><FaHome></FaHome> Home</span></Link> </li>
+                    <li><Link to="/instructors">Instructors</Link></li>
+                    <li><Link to="/classes">Classes</Link></li>
 
                 </ul>
 

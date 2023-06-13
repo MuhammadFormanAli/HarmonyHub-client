@@ -1,3 +1,4 @@
+import Payment from "../../../../components/payment/Payment";
 import useCarts from "../../../../hooks/useCarts";
 import SelectedClassRow from "./SelectedClassRow";
 
@@ -10,6 +11,7 @@ const SelectedClasses = () => {
     const selectedCourses = carts?.filter(item => item.payStatus === 'unpaid')
     return (
         <div>
+             <Payment></Payment>
             <h1 className="text-2xl text-black text-center font-bold bg-cyan-100 p-10 mb-4">My Selected Classes</h1>
             <div>
                 <div className="overflow-x-auto">
@@ -27,6 +29,7 @@ const SelectedClasses = () => {
                         </thead>
 
                         <tbody>
+                           
                             {
                                 selectedCourses?.map((item, index) => <SelectedClassRow key={item._id}
                                     course={item}
