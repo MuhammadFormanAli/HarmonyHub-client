@@ -1,11 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import './checkoutForm.css'
+import Swal from "sweetalert2";
 
 
+const CheckoutForm = ({ price, courseDetails }) => {
 
-const CheckoutForm = ({ price, cart }) => {
     const stripe = useStripe()
     const elements = useElements()
     const { user } = useAuth()
@@ -19,7 +21,7 @@ const CheckoutForm = ({ price, cart }) => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
                 .then(res => {
-                    console.log(res.data.clientSecret)
+                    // console.log(res.data.clientSecret)
                     setClientSecret(res.data.clientSecret);
                 })
         }
@@ -83,31 +85,25 @@ const CheckoutForm = ({ price, cart }) => {
                 transitionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                cart,
+                courseDetails,
             }
 
             axiosSecure.post('payments', payment)
                 .then(res => {
                     console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        alert('payment successful')
+                    if (res.data.insertedId) {
+                        Swal.fire('Payment Successful')
                     }
                 })
         }
 
-
-
     }
 
 
-
-
     return (
-
-
-
-        <>
-            <form className="w-2/3 m-8" onSubmit={handleSubmit}>
+        <div className="w-full my-8 ">
+            <h1 className="text-xl text-cyan-900 font-bold pl-2">Please Pay</h1>
+            <form className="min-w-[450px] m-2" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -124,14 +120,14 @@ const CheckoutForm = ({ price, cart }) => {
                         },
                     }}
                 />
-                <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                <button className="btn btn-info btn-sm mt-1" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
             {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
 
-        </>
+        </div>
     );
 };
 

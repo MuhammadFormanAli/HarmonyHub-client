@@ -21,7 +21,7 @@ import PrivetRoute from './PrivateRoute';
 import AdminPrivate from './AdminPrivate';
 import InstructorPrivate from './InstructorPrivate';
 import Error from '../components/Error';
-import Payment from '../components/payment/Payment';
+import Payment from '../pages/dashboard/student/payment/Payment';
 
 
 
