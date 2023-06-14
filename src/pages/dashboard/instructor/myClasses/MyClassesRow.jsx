@@ -26,7 +26,7 @@ const MyClassesRow = ({ index, instructorClass}) => {
 
             </td>
             <td>
-                <div className="font-bold">{price}</div>
+                <div className="font-bold">$: {price}</div>
             </td>
             <td>
                 <div className="font-bold">{status}</div>

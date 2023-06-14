@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Loading from "../../../../components/shared/navbar/Loading";
 
 
 
@@ -10,24 +11,30 @@ const PaymentsHistory = () => {
   const [axiosSecure] = useAxiosSecure()
   const { user } = useAuth()
   const [payments, setPayments] = useState([])
+  const [loading,setLoading]=useState(true)
   console.log(user)
   console.log(payments)
+  
+
+ 
 
   useEffect(() => {
     axiosSecure(`/payment-details/${user?.email}`)
       .then(data => {
         console.log(data.data)
         setPayments(data.data)
+        setLoading(false)
       })
 
   }, [axiosSecure, user?.email])
 
-
+ if(loading){
+    return <Loading></Loading>
+  }
 
 
   return (
     <>
-
       <h1 className="text-center font-bold text-sky-600 py-8 text-3xl">Your Payment History</h1>
       <div className="shadow-lg rounded-lg overflow-hidden">
         <table className="w-full">
@@ -42,11 +49,11 @@ const PaymentsHistory = () => {
           </thead>
           <tbody>
             {
-              payments.sort((a, b) => a.date > b.date ? -1 : 1).map((payment, index) =>
+              payments?.sort((a, b) => a.date > b.date ? -1 : 1).map((payment, index) =>
                 <tr key={payment._id} className="shadow-lg rounded-lg overflow-hidden">
                   <td className="py-2 px-4 border-b">{index + 1}</td>
                   <td className="py-2 px-4 border-b">{payment?.courseDetails.className}</td>
-                  <td className="py-2 px-4 border-b">{payment?.price}</td>
+                  <td className="py-2 px-4 border-b">${payment?.price}</td>
                   <td className="py-2 px-4 border-b">{payment?.date}</td>
                   <td className="py-2 px-4 border-b">trxId : {payment?.transactionId}</td>
                   <td className="py-2 px-4 border-b">{ }</td>

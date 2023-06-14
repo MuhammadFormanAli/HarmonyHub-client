@@ -23,16 +23,16 @@ const AdminDashboard = () => {
         return <Loading></Loading>
     }
 
-    const totalStudents = allClasses.reduce((sum, item) => item.enrolledStudents + sum, 0)
+    const totalStudents = allClasses.reduce((sum, item) => item?.enrolledStudents + sum, 0)
 
 
     const getUniqueArrayByField = (arrayName, fieldName) => {
         let uniqueArray = [];
         arrayName.forEach((item) => {
             let fieldValue = item[fieldName];
-            let index = uniqueArray.findIndex((item) => item[fieldName] === fieldValue);
+            let index = uniqueArray?.findIndex((item) => item[fieldName] === fieldValue);
             if (index === -1) {
-                uniqueArray.push(item);
+                uniqueArray?.push(item);
             }
         });
 
@@ -53,32 +53,32 @@ const AdminDashboard = () => {
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Students</h2>
-            <p className="text-gray-700">Total Students: {totalStudents}</p>
+            <p className="text-gray-700">Total Students : {totalStudents}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Instructors</h2>
-            <p className="text-gray-700">Total Instructors: {totalInstructor.length}</p>
+            <p className="text-gray-700">Total Instructors: {totalInstructor?.length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Classes</h2>
-            <p className="text-gray-700">Total Classes:{allClasses.length}</p>
+            <p className="text-gray-700">Total Classes : {allClasses?.length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Approved</h2>
-            <p className="text-gray-700">Total Approved: {allClasses.filter(x => x.status === 'approved').length}</p>
+            <p className="text-gray-700">Total Approved : {allClasses?.filter(x => x.status === 'approved').length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Pending</h2>
-            <p className="text-gray-700">Total Pending: {allClasses.filter(x => x.status === 'pending').length}</p>
+            <p className="text-gray-700">Total Pending : {allClasses?.filter(x => x.status === 'pending').length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Denied</h2>
-            <p className="text-gray-700">Total Denied: {allClasses.filter(x => x.status === 'denied').length}</p>
+            <p className="text-gray-700">Total Denied : {allClasses?.filter(x => x.status === 'denied').length}</p>
           </div>
 
         </div>
