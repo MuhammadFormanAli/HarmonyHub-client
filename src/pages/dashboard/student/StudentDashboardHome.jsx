@@ -7,9 +7,9 @@ const StudentDashboardHome = () => {
 const {user}=useAuth()
 const [carts]=useCarts()
 console.log(carts)
-const selectedCourses = carts?.filter(item => item.payStatus === 'unpaid')
-const enrolledClasses = carts?.filter(item => item.payStatus === "paid")
-const totalSpend = enrolledClasses.reduce((sum, item) => item.price + sum, 0)
+const selectedCourses = carts?.filter(item => item?.payStatus === 'unpaid')
+const enrolledClasses = carts?.filter(item => item?.payStatus === "paid")
+const totalSpend = enrolledClasses?.reduce((sum, item) => item?.price + sum, 0)
 
 
 
@@ -22,12 +22,12 @@ const totalSpend = enrolledClasses.reduce((sum, item) => item.price + sum, 0)
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Enrolled</h2>
-            <p className="text-gray-700"> Enrolled Classes : {enrolledClasses.length}</p>
+            <p className="text-gray-700"> Enrolled Classes : {enrolledClasses?.length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">
             <h2 className="text-lg font-semibold mb-2">Selected</h2>
-            <p className="text-gray-700"> Selected Classes : {selectedCourses.length}</p>
+            <p className="text-gray-700"> Selected Classes : {selectedCourses?.length}</p>
           </div>
 
           <div className="bg-white p-4 shadow-md rounded-lg">

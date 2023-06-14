@@ -17,7 +17,7 @@ const Classes = () => {
                 <h1 className="text-3xl text-center font-bold m-6">Our Classes</h1>
                 <div className="flex flex-col gap-3">
                     {
-                        classes.map(course => <ClassCard
+                        classes?.map(course => <ClassCard
                             key={course._id}
                             course={course}
                         ></ClassCard>)

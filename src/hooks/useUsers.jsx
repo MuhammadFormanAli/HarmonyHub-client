@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useUsers = () => {
 
-    const {data: users = [], loading, refetch} = useQuery({
+    const {data: users = [], isLoading:loading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
             const res = await axios('https://summer-camp-sandy.vercel.app/users')
