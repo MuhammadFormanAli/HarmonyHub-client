@@ -33,10 +33,10 @@ const Register = () => {
 
 						axios.post('https://summer-camp-sandy.vercel.app/users', {saveUser})
 							.then(data => {
-								console.log(data.data)
+								// console.log(data.data)
 								if (data.data.insertedId) {
-									reset()
 									Swal.fire('SighUp successful')
+									reset()
 									navigate(from, { replace: true })
 								}
 							})

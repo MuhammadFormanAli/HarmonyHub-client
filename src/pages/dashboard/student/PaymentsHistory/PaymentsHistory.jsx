@@ -23,6 +23,8 @@ const PaymentsHistory = () => {
   }, [axiosSecure, user?.email])
 
 
+
+
   return (
     <>
 
@@ -40,7 +42,7 @@ const PaymentsHistory = () => {
           </thead>
           <tbody>
           {
-            payments.map((payment,index) =>
+            payments.sort( (a,b) => a.date > b.date? -1 : 1).map((payment,index) =>
               <tr key={payment._id} className="shadow-lg rounded-lg overflow-hidden">
                 <td className="py-2 px-4 border-b">{index+1}</td>
                 <td className="py-2 px-4 border-b">{payment?.courseDetails.className}</td>

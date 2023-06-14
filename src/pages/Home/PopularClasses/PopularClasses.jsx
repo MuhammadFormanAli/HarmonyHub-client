@@ -14,7 +14,9 @@ const PopularClasses = () => {
 
 
 
-    
+
+console.log(popular)
+
     return (
         <div className="my-5">
             <div className="swiper4 flex items-center justify-center text-2xl md:text-3xl lg:text-4xl font-bold">
