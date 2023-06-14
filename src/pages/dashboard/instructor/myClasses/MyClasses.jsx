@@ -28,7 +28,7 @@ if(loading){
 
     return (
         <div>
-            <Helmet><title>My classes - HarmonyHub</title></Helmet>
+            <Helmet><title>My Classes - HarmonyHub</title></Helmet>
             <h1 className="text-center font-bold sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">My Classes</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">

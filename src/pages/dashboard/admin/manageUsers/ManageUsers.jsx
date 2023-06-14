@@ -7,20 +7,20 @@ import { Helmet } from "react-helmet-async";
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure()
 
-    const {data: users = [], loading, refetch} = useQuery({
+    const { data: users = [], loading, refetch } = useQuery({
         queryKey: ['users'],
-        queryFn: async() => {
+        queryFn: async () => {
             const res = await axiosSecure(`/users`)
             return res.data;
         }
     })
-     
-    if(loading){
+
+    if (loading) {
         return <>loading...</>
     }
-    
+
     return (
-        <div> 
+        <div>
             <Helmet><title>Manage Users - HarmonyHub</title></Helmet>
             <h1 className="text-center font-bold uppercase sm:text-xl md:text-2xl lg:text-3xl p-16 bg-sky-500">Manage Users</h1>
             <div className="overflow-x-auto">
@@ -39,17 +39,17 @@ const ManageUsers = () => {
                     <tbody>
                         {/* row 1 */}
 
-                        {users?.map((User,index) => 
-                        <ManageUsersRow
-                        key = {User._id}
-                        index = {index}
-                        User = {User}
-                        refetch = {refetch}
-                        >
-                        </ManageUsersRow>)}
-                        
+                        {users?.map((User, index) =>
+                            <ManageUsersRow
+                                key={User._id}
+                                index={index}
+                                User={User}
+                                refetch={refetch}
+                            >
+                            </ManageUsersRow>)}
+
                         {/* row 3 */}
-                       
+
                     </tbody>
                 </table>
             </div>

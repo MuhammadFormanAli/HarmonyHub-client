@@ -52,7 +52,7 @@ const Navbar = () => {
 						</ul>
 					</div>
 
-					<img className="w-[150px] hidden sm:block " src="/logo.png" alt="" />
+					<Link to='/'><img className="w-[150px] hidden sm:block " src="/logo.png" alt="" /></Link>
 
 					<div className="ml-5">
 						<Toggle></Toggle>
@@ -73,7 +73,7 @@ const Navbar = () => {
 
 						<div className="w-[35px] rounded-full ring ring-slate-600 ring-offset-base-100 ring-offset-2">
 
-							<img src={user ? `${user?.photoURL}` : '/public/avatar.jpg'} />
+							<img src={user ? `${user?.photoURL}` : '/avatar.jpg'} />
 
 						</div>
 

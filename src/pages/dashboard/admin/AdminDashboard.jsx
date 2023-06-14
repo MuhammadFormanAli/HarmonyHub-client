@@ -44,18 +44,47 @@ const AdminDashboard = () => {
 
     return (
         <div>
-            <h1 className="bg-green-400 p-8 text-4xl font-bold rounded-md">Welcome! {user?.displayName}</h1>
-            <div className="flex flex-col md:flex-row item-center justify-between my-5 gap-4 text-center">
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Total students : {totalStudents}</h1>
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Total Instructor :{totalInstructor.length}</h1>
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Total Classes :{allClasses.length}</h1>
-            </div>
-            <div className="flex flex-col md:flex-row item-center justify-between my-5 gap-4 text-center">
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Approved Classes :{allClasses.filter(x => x.status === 'approved').length}</h1>
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Pending Classes :{allClasses.filter(x => x.status === 'pending').length}</h1>
-                <h1 className="test-3xl font-bold rounded-md bg-orange-200 p-8">Denied Classes :{allClasses.filter(x => x.status === 'denied').length}</h1>
-            </div>
+            
+
+<div className="flex-1 bg-gray-200 p-8">
+        <h1 className="text-2xl font-bold mb-2">Welcome to the Dashboard!</h1>
+        <h1 className="text-1xl font-bold mb-5">{user?.displayName}</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Students</h2>
+            <p className="text-gray-700">Total Students: {totalStudents}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Instructors</h2>
+            <p className="text-gray-700">Total Instructors: {totalInstructor.length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Classes</h2>
+            <p className="text-gray-700">Total Classes:{allClasses.length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Approved</h2>
+            <p className="text-gray-700">Total Approved: {allClasses.filter(x => x.status === 'approved').length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Pending</h2>
+            <p className="text-gray-700">Total Pending: {allClasses.filter(x => x.status === 'pending').length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Denied</h2>
+            <p className="text-gray-700">Total Denied: {allClasses.filter(x => x.status === 'denied').length}</p>
+          </div>
+
         </div>
+      </div>
+</div>
+
     );
 };
 

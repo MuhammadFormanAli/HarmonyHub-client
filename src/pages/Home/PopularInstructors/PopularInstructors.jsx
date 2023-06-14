@@ -13,7 +13,7 @@ const PopularInstructors = () => {
 
 // const handleTest =  ()=>{
 //     const updated = { newStudents : 5,newSeats:10}
-//     axios.post('http://localhost:5000/test/6484449938a3ac3414539216',{updated})
+//     axios.post('https://summer-camp-sandy.vercel.app/test/6484449938a3ac3414539216',{updated})
 //     .then(data=>console.log(data.data))
         
 // }

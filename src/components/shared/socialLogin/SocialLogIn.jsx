@@ -28,7 +28,7 @@ const SocialLogIn = () => {
                     navigate(from, { replace: true })
                 })
                 
-                // fetch('http://localhost:5000/users', {
+                // fetch('https://summer-camp-sandy.vercel.app/users', {
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'

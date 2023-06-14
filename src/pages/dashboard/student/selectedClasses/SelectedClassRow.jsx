@@ -19,7 +19,7 @@ const SelectedClassRow = ({ index, course, refetch }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`http://localhost:5000/cart/delete/${id}`)
+                axiosSecure.delete(`https://summer-camp-sandy.vercel.app/cart/delete/${id}`)
                     .then(data => {
                         if (data.data.deletedCount) {
                             Swal.fire(

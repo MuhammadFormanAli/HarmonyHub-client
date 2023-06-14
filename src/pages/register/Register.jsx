@@ -31,7 +31,7 @@ const Register = () => {
 					.then(result => {
 						const saveUser = { name, email, photo, role }
 
-						axios.post('http://localhost:5000/users', {saveUser})
+						axios.post('https://summer-camp-sandy.vercel.app/users', {saveUser})
 							.then(data => {
 								console.log(data.data)
 								if (data.data.insertedId) {

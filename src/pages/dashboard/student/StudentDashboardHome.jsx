@@ -14,20 +14,35 @@ const totalSpend = enrolledClasses.reduce((sum, item) => item.price + sum, 0)
 
 
     return (
-        <div className="flex items-center justify-center h-full border-4">
-            <div>
-            <h1 className="bg-green-400 p-8 text-4xl font-bold rounded-md">Welcome! {user?.displayName}</h1>
-            <div className="flex flex-col md:flex-row item-center justify-between my-5 gap-4 text-center">
-                <div className="flex flex-col md:flex-row justify-between gap-2 w-full">
-                    <h1 className="test-3xl font-bold rounded-md bg-green-200 p-8">Enrolled Classes :{enrolledClasses.length}</h1>
-                    <h1 className="test-3xl font-bold rounded-md bg-info p-8">Selected Classes :{selectedCourses.length}</h1>
-                    <h1 className="test-3xl font-bold rounded-md bg-red-200 p-8">Total Spend :${totalSpend}</h1>
-                </div>
 
-                
-            </div>
+<div className="flex-1 bg-gray-200 p-8">
+        <h1 className="text-2xl font-bold mb-2">Welcome to the Dashboard!</h1>
+        <h1 className="text-1xl font-bold mb-5">{user?.displayName}</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Enrolled</h2>
+            <p className="text-gray-700"> Enrolled Classes : {enrolledClasses.length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Selected</h2>
+            <p className="text-gray-700"> Selected Classes : {selectedCourses.length}</p>
+          </div>
+
+          <div className="bg-white p-4 shadow-md rounded-lg">
+            <h2 className="text-lg font-semibold mb-2">Spend</h2>
+            <p className="text-gray-700">Total Spend : ${totalSpend}</p>
+          </div>
+
         </div>
-        </div>
+    </div>
+
+
+
+
+
+
     );
 };
 
