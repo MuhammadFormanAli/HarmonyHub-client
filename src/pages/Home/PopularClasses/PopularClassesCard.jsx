@@ -47,11 +47,11 @@ const PopularClassesCard = ({course}) => {
   
     return (
     <Fade>
-            <div className=" md:max-h-[250px] border p-1 card card-compact rounded-none flex flex-col items-center sm:flex-row bg-base-100 shadow-xl">
-            <div className="w-1/2">
+            <div style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  className=" md:max-h-[255px] border p-1 card card-compact rounded-none flex flex-col items-center sm:flex-row bg-base-100 shadow-xl">
+            <div className=" w-ful lg:w-1/2">
             <img className="h-[250px]" src={course?.img} alt="" />
             </div>
-            <div className="card-body ">
+            <div className="card-body  ">
                 <h2 className="card-title">{course?.className}</h2>
                 <div>
                 <p className="font-bold text-lg">Instructor:{course?.instructorName}</p>
