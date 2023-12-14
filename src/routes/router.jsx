@@ -23,6 +23,7 @@ import InstructorPrivate from './InstructorPrivate';
 import Error from '../components/Error';
 import Payment from '../pages/dashboard/student/payment/Payment';
 import PaymentsHistory from '../pages/dashboard/student/PaymentsHistory/PaymentsHistory';
+import InstructorDetails from '../pages/Instructors/InstructorDetails';
 
 
 
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
           path:"instructors",
           element:<Instructors></Instructors>
           
+        },
+        {
+          path:'instructors/:id',
+          element:<InstructorDetails></InstructorDetails>
         },
 
       ]

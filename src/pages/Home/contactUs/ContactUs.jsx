@@ -1,4 +1,4 @@
-import {  JackInTheBox } from "react-awesome-reveal";
+import {  Fade } from "react-awesome-reveal";
 import {FaAddressCard, FaClock, FaPhone,  } from "react-icons/fa";
 import { MdEmail } from "react-icons/md"
 
@@ -10,16 +10,16 @@ const ContactUs = () => {
       <p className='text-center mb-5 font-bold'>We always with You</p>
 
       <div className='flex flex-col md:flex-row gap-2'>
-        <div className='w-full md:w-1/2 grid grid-cols-2 gap-1'>
-          <JackInTheBox>
+        <div className='w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-1'>
+          <Fade>
             <div className='bg-slate-200 text-center p-4 card'>
               <span className="block w-fit mx-auto p-1"><FaAddressCard></FaAddressCard></span>
               <h1 className='font-bold text-xl'>Address</h1>
               <p className='font-bold text-lg'>Aladan street</p>
               <p className='font-bold text-lg'>New Yourk</p>
             </div>
-          </JackInTheBox>
-          <JackInTheBox>
+          </Fade>
+          <Fade>
             <div className='bg-slate-200 text-center p-4 card'>
               
               <span className="block w-fit mx-auto p-1"><FaPhone></FaPhone> </span>
@@ -27,23 +27,23 @@ const ContactUs = () => {
               <p className='font-bold text-lg'>+99-404040</p>
               <p className='font-bold text-lg'>+91-141241</p>
             </div>
-          </JackInTheBox>
-          <JackInTheBox>
+          </Fade>
+          <Fade>
             <div className='bg-slate-200 text-center p-4 card'>
             <span className="block w-fit mx-auto p-1"><MdEmail></MdEmail></span>
               <h1 className='font-bold text-xl'>Email Us</h1>
               <p className='font-bold text-lg'>info@gmail.com</p>
               <p className='font-bold text-lg'>info@gmail.com</p>
             </div>
-          </JackInTheBox>
-          <JackInTheBox>
+          </Fade>
+          <Fade>
             <div className='bg-slate-200 text-center p-4 card'>
             <span className="block w-fit mx-auto p-1"><FaClock></FaClock></span>
-              <h1 className='font-bold text-xl'>Working Hours</h1>
-              <p className='font-bold text-lg'>Mon-fri : 9am - 5pm</p>
-              <p className='font-bold text-lg'>Sunday: 9am - 1pm </p>
+              <h1 className='font-bold text-xl'>Work Time</h1>
+              <p className='font-bold text-lg'>Mon-fri</p>
+              <p className='font-bold text-lg'>9am - 5pm </p>
             </div>
-          </JackInTheBox>
+          </Fade>
         </div>
 
         <section className="bg-slate-200 py-2 w-full md:w-1/2 rounded-md">

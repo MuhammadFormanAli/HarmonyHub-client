@@ -1,13 +1,22 @@
 import { Helmet } from "react-helmet-async";
-import useUsers from "../../hooks/useUsers";
 import InstructorCard from "./InstructorCard";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Instructors = () => {
-	const [users] = useUsers()
-	const instructors = users?.filter(instructor => instructor?.role === 'instructor')
-	console.log(instructors)
 
+    const {data: instructors = [], isLoading: loading,} = useQuery({
+        queryKey: ['instructors'],
+        queryFn: async() => {
+            const res = await axios('https://summer-camp-sandy.vercel.app/instructors');
+            return res.data;
+        }
+    })
+
+ if (loading) {
+    return <>loading....</>
+ }
 	return (
 
 		<>

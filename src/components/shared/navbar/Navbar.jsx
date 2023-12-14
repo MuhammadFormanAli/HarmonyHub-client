@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import Toggle from "../../themeToggle/Toggle";
+// import Toggle from "../../themeToggle/Toggle";
 import ActiveLink from "../activeLink/ActiveLink";
 import Loading from "./Loading";
 
@@ -54,9 +54,9 @@ const Navbar = () => {
 
 					<Link to='/'><img className="w-[150px] hidden sm:block " src="/logo.png" alt="" /></Link>
 
-					<div className="ml-5">
+					{/* <div className="ml-5">
 						<Toggle></Toggle>
-					</div>
+					</div> */}
 				</div>
 
 				<div className="navbar-center hidden lg:flex">

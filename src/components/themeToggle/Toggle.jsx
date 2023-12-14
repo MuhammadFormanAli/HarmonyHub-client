@@ -5,7 +5,7 @@ const Toggle = () => {
         document.querySelector('html').setAttribute('data-theme',"light")
         }
         else{
-            document.querySelector('html').setAttribute('data-theme',"dark")
+            document.querySelector('html').setAttribute('data-theme',"light")
         }
     }
     return (

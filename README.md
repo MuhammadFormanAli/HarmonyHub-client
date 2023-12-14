@@ -25,10 +25,10 @@
   * react-awesome-reveal 
   * framer-motion
   * react-helmet-async
-  * react-icoms
+  * react-icons
   * react-hook-form 
-  * sweetarart2
-  * swiper
+  * sweet alert2
+  * swiper js
 
 
 ## live website link: https://summer-camp-school-b5933.web.app/
