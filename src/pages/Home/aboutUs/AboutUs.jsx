@@ -3,7 +3,7 @@
 const AboutUs = () => {
 
     return (
-        <section className="bg-gray-200 py-12 px-3 my-8">
+        <section className="bg-black bg-opacity-40 p-7 mt-4 text-white rounded-md">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8">About Us</h2>
   

@@ -49,24 +49,24 @@ const PopularClassesCard = ({ course }) => {
         style={{
           backgroundColor: course?.availableSeats === 0 ? "#ce2f2f86" : "",
         }}
-        className=" md:max-h-[255px] border p-1 card card-compact rounded-none flex flex-col items-center sm:flex-row bg-base-100 shadow-xl"
+        className=" bg-base-100 p-3 bg-opacity-50 hover:bg-opacity-75 saturate-50 hover:saturate-100 rounded-md md:max-h-[255px] border sm:pl-4 card card-compact flex flex-col items-center sm:flex-row shadow-xl"
       >
-        <div className="">
+        
           <img
-            className="w-full h-40 object-cover mb-2 rounded-md"
+            className="w-full xl:w-[200px] lg:w-[150px] h-40 object-cover rounded-md"
             src={course?.img}
           />
-        </div>
-        <div className="card-body text-left w-full ">
-          <h2 className="card-title mt-0 lg:mt-4">{course?.className}</h2>
+        
+        <div className="p-3 text-left w-full md:pl-3 ">
+          <h2 className=" mt-0 lg:mt-4 text-base md:text-lg">{course?.className}</h2>
           <div>
-            <p className="font-bold text-lg">
+            <p className="font-semibold text-sm md:text-base">
               Instructor:{course?.instructorName}
             </p>
-            <p className="font-bold">Email:{course?.instructorEmail}</p>
+            <p className="font-semibold text-xs md:text-sm">Email:{course?.instructorEmail}</p>
           </div>
-          <div className="flex mt-2 justify-center">
-            <p className=" font-extrabold text-base">
+          <div className="flex mt-2 justify-between relative">
+            <p className=" font-semibold text-sm py-1">
               Students: {course?.enrolledStudents}
             </p>
             <button
@@ -76,12 +76,12 @@ const PopularClassesCard = ({ course }) => {
                 role === "instructor"
               }
               onClick={() => handleSelectCourse(course)}
-              className="btn btn-outline text-black mb-1 w-fit"
+              className="border p-2  text-black rounded text-sm "
             >
               <span className="text-black">Add To Cart</span>
             </button>
           </div>
-          <p className="absolute top-2 right-2 p-2 font-bold bg-yellow-900 text-white">
+          <p className="absolute top-4 right-4 p-2 font-bold rounded-tr-md bg-yellow-900 text-white">
             ${course.price}
           </p>
         </div>

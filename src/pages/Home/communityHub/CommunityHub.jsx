@@ -1,7 +1,9 @@
+import { Slide } from "react-awesome-reveal";
 
 const CommunityHub = () => {
     return (
-        <section className="bg-gray-900 text-white p-8">
+        <Slide direction="right">
+          <section className="bg-gray-900 bg-opacity-40 rounded-md my-3 p-3 text-white">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">Community Hub</h2>
         <p className="text-lg mb-6">
@@ -12,6 +14,7 @@ const CommunityHub = () => {
         </button>
       </div>
     </section>
+        </Slide>
     );
 };
 

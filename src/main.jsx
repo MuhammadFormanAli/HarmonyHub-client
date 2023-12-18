@@ -10,7 +10,7 @@ import { HelmetProvider } from 'react-helmet-async'
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='max-w-[1300px] px-8 mx-auto'>
+  <div className='max-w-[1440px] px-8 mx-auto'>
     <React.StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>

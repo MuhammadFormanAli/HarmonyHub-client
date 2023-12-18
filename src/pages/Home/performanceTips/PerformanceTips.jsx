@@ -14,8 +14,8 @@ const PerformanceTips = () => {
       ];
     
       return (
-        <section className="bg-gray-200 pb-8">
-          <header className="bg-gray-800 text-white py-4 text-center">
+        <section className="bg-black bg-opacity-40 p-3 rounded-md">
+          <header className=" text-white py-4 text-center">
         <h1 className="text-2xl font-bold">Performance Tips</h1>
       </header>
           <div className="max-w-2xl mx-auto">

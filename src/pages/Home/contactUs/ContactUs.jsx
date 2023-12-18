@@ -5,14 +5,14 @@ import { MdEmail } from "react-icons/md"
 
 const ContactUs = () => {
   return (
-    <div className='my-5 bg-base-200 p-5'>
+    <div className='mt-4 bg-gray-600 bg-opacity-40  p-3 rounded-md mb-4'>
       <h2 className="text-3xl font-bold text-center">Contact Us</h2>
       <p className='text-center mb-5 font-bold'>We always with You</p>
 
-      <div className='flex flex-col md:flex-row gap-2'>
-        <div className='w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-1'>
+      <div className='flex flex-col md:flex-row gap-3'>
+        <div className='w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-3'>
           <Fade>
-            <div className='bg-slate-200 text-center p-4 card'>
+            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
               <span className="block w-fit mx-auto p-1"><FaAddressCard></FaAddressCard></span>
               <h1 className='font-bold text-xl'>Address</h1>
               <p className='font-bold text-lg'>Aladan street</p>
@@ -20,7 +20,7 @@ const ContactUs = () => {
             </div>
           </Fade>
           <Fade>
-            <div className='bg-slate-200 text-center p-4 card'>
+            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
               
               <span className="block w-fit mx-auto p-1"><FaPhone></FaPhone> </span>
               <h1 className='font-bold text-xl'>Call us</h1>
@@ -29,7 +29,7 @@ const ContactUs = () => {
             </div>
           </Fade>
           <Fade>
-            <div className='bg-slate-200 text-center p-4 card'>
+            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
             <span className="block w-fit mx-auto p-1"><MdEmail></MdEmail></span>
               <h1 className='font-bold text-xl'>Email Us</h1>
               <p className='font-bold text-lg'>info@gmail.com</p>
@@ -37,7 +37,7 @@ const ContactUs = () => {
             </div>
           </Fade>
           <Fade>
-            <div className='bg-slate-200 text-center p-4 card'>
+            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
             <span className="block w-fit mx-auto p-1"><FaClock></FaClock></span>
               <h1 className='font-bold text-xl'>Work Time</h1>
               <p className='font-bold text-lg'>Mon-fri</p>
@@ -46,8 +46,8 @@ const ContactUs = () => {
           </Fade>
         </div>
 
-        <section className="bg-slate-200 py-2 w-full md:w-1/2 rounded-md">
-          <div className="container mx-auto py-8">
+        <section className="bg-slate-200 py-2 w-full md:w-1/2 rounded-md bg-opacity-70">
+          <div className="container mx-auto p-3">
             <div className="max-w-lg mx-auto">
               <div className="mb-2">
                 <input

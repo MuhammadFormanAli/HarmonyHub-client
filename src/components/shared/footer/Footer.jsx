@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <footer className="footer p-10 bg-neutral text-neutral-content">
+      <footer className="footer p-10 bg-black bg-opacity-60 text-neutral-content">
         <div>
           <img className="w-[50px]" src="/logo2.png" alt="" />
           <p className="text-2xl">HARMONYHUB</p>
@@ -26,8 +26,8 @@ const Footer = () => {
         </div>
         
       </footer>
-      <div className="w-full block flex items-center justify-center">
-        <p className=" w-full  text-center  p-10 bg-neutral text-neutral-content " >Copyright © 2023 - All right reserved by HarmonyHub</p>
+      <div className="w-full flex items-center justify-center p-0">
+        <p className=" w-full  text-center  p-1 bg-neutral text-neutral-content " >Copyright © 2023 - All right reserved by HarmonyHub</p>
       </div>
 
     </>

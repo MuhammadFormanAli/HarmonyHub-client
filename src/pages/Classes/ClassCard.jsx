@@ -40,18 +40,18 @@ const ClassCard = ({ course }) => {
 
 
     return (
-        <div className="border card max-h-500px  rounded-sm relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  >
+        <div className="border p-3 bg-white bg-opacity-70 max-h-500px  rounded-md relative" style={{ backgroundColor: course?.availableSeats === 0 ? '#ce2f2f86' : '' }}  >
 
-            <div className=" flex flex-col md:flex-row">
+            <div className=" flex flex-col md:flex-row ">
                 <div className="">
-                    <img className=" p-1 max-h-[250px] w-auto" src={course.img} alt={course.name} />
+                    <img className="rounded-md h-[150px] w-full  md:h-[250px] md:w-[350px]  object-cover " src={course.img} alt={course.name} />
                 </div>
 
                 <div className="ml-4 flex flex-col mt-5 justify-between">
 
                     <div>
-                        <h2 className="text-2xl font-bold">{course?.className}</h2>
-                        <p className="text-lg font-bold">Instructor: {course?.instructorName}</p>
+                        <h2 className="text-xl font-bold">{course?.className}</h2>
+                        <p className="text-base font-bold">Instructor: {course?.instructorName}</p>
                         <p>Available Seats: {course?.availableSeats}</p>
                     </div>
 
