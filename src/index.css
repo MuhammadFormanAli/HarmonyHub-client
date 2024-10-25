@@ -2,84 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-a{
-    margin: 2px;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+a {
+  margin: 2px;
 }
 
-#root{
-    /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
-    background: linear-gradient(45deg, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
-    background-size: 400% 400%;
-    animation: gradientAnimation 20s infinite;
-
+:root{
+  font-family: "Manrope", sans-serif;
 }
 
-@keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    25% {
-      background-position: 100% 50%;
-    }
-    50% {
-      background-position: 100% 0%;
-    }
-    75% {
-      background-position: 0% 100%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-.active{
-    padding: 0px 15px;
-    text-decoration: none;
-    color: #7E90FE;
-    font-size: 17px;
-    font-weight: 800;
-}
-.nav-link{
-
-    padding: 0px 15px;
-    text-decoration: none;
-    color: #ac8572;
-    font-size: 16px;
-    font-weight: 700;;
+.active {
+  padding: 5px 0px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  border-bottom: 2px solid #D87D4A;
+  margin: 0;
 }
 
-.swiper1{
-    background-image: url(/public/banner/banner4.jpg) !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+.nav-link {
+  padding: 5px 0px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
 }
-.swiper2{
-    background-image: url(/public/banner/banner2.jpg) !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+
+.swiper1 {
+  background-image: url(/public/banner/banner4.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
-.swiper3{
-    background-image: url(/public/banner/banner3.jpg) !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+
+.swiper2 {
+  background-image: url(/public/banner/banner2.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
-.swiper4{
-    background-image: url(/public/banner/banner4.jpg) !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    margin: 20px auto;
+
+.swiper3 {
+  background-image: url(/public/banner/banner3.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.swiper4 {
+  background-image: url(/public/banner/banner4.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 20px auto;
 }
 
 
-a{
-    font-size: 15px;
-    font-weight: bold;
+a {
+  font-size: 15px;
+  font-weight: bold;
 }
