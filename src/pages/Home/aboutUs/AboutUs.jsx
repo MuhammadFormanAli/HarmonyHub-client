@@ -3,8 +3,26 @@
 const AboutUs = () => {
 
     return (
-        <section className="bg-black bg-opacity-40 p-7 mt-4 text-white rounded-md">
-        <div className="container mx-auto">
+        <section className="bg-[#fff] relative ">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] py-[50px] container mx-auto px-[10px] items-center ">
+          <div className=" w-full  flex flex-col z-20 ">
+          <p className="text-[12px] md:text-[14px] tracking-[5px] md:tracking-[7px] text-[#D87D4A] uppercase">
+                  About Us
+                </p>
+            <p className="font-bold text-[24px] md:text-[30px] lg:text-[36px] lg:leading-[38px] leading-[26px] md:leading-[32px] uppercase md:text-[#101010] text-[#fff] ">
+            Passion for Music, Dedication to Teaching
+            </p>
+            <p className="text-[14px] md:text-[16px]  mt-[15px] md:text-[#101010] text-[#fff]" >We believe music has the power to transform lives. Our mission is to make learning music accessible, enjoyable, and inspiring for all ages. With experienced instructors and a supportive community, we&apos;re here to help you reach your full musical potential.</p>
+            <button className="bg-[#101010] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#101010bf] text-[16px] transition-all mt-[20px]">
+                  Discover More
+                </button>
+          </div>
+          <div className="h-full w-full bg-[#101010bb] absolute top-0 left-0 md:hidden z-10 "></div>
+          <img className="h-full w-full object-cover object-center absolute top-0 left-0 md:static " src="https://plus.unsplash.com/premium_photo-1664302427357-40eb7c8fd3c0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWN8ZW58MHx8MHx8fDA%3D" alt="About Us"  />
+
+          </div>
+        {/* <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-8">About Us</h2>
   
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -21,10 +39,10 @@ const AboutUs = () => {
             </div>
   
             <div>
-              <img src="https://plus.unsplash.com/premium_photo-1664302427357-40eb7c8fd3c0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWN8ZW58MHx8MHx8fDA%3D" alt="About Us" className="w-full h-auto rounded-md" />
+              
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     );
 };

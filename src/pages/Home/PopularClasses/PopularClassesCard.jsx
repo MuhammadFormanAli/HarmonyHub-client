@@ -47,28 +47,31 @@ const PopularClassesCard = ({ course }) => {
     <Fade>
       <div
         style={{
-          backgroundColor: course?.availableSeats === 0 ? "#ce2f2f86" : "",
+          backgroundColor: course?.availableSeats === 0 ? "#f92828" : "",
         }}
-        className=" bg-base-100 p-3 bg-opacity-50 hover:bg-opacity-75 saturate-50 hover:saturate-100 rounded-md md:max-h-[255px] border sm:pl-4 card card-compact flex flex-col items-center sm:flex-row shadow-xl"
+        className="   border border-[#f1f1f1] flex flex-col  sm:flex-row shadow p-[10px] text-[#101010]"
       >
         
           <img
-            className="w-full xl:w-[200px] lg:w-[150px] h-40 object-cover rounded-md"
+            className="w-full xl:w-[200px] lg:w-[150px] h-40 object-cover"
             src={course?.img}
           />
         
-        <div className="p-3 text-left w-full md:pl-3 ">
-          <h2 className=" mt-0 lg:mt-4 text-base md:text-lg">{course?.className}</h2>
+        <div className="px-3 text-left w-full md:pl-3  flex flex-col gap-[10px]">
+          <h2 className=" text-[18px] uppercase ">{course?.className}</h2>
           <div>
-            <p className="font-semibold text-sm md:text-base">
+            <p className="">
               Instructor:{course?.instructorName}
             </p>
-            <p className="font-semibold text-xs md:text-sm">Email:{course?.instructorEmail}</p>
+            <p className="">Email:{course?.instructorEmail}</p>
           </div>
-          <div className="flex mt-2 justify-between relative">
-            <p className=" font-semibold text-sm py-1">
+          <div className="flex items-end mt-2 justify-between relative">
+           <div className="flex flex-col gap-[5px]">
+           <p className="">
               Students: {course?.enrolledStudents}
             </p>
+            <p>Price: ${course?.price} </p>
+           </div>
             <button
               disabled={
                 course?.availableSeats === 0 ||
@@ -76,14 +79,14 @@ const PopularClassesCard = ({ course }) => {
                 role === "instructor"
               }
               onClick={() => handleSelectCourse(course)}
-              className="border p-2  text-black rounded text-sm "
+              className=" "
             >
-              <span className="text-black">Add To Cart</span>
+              <span className="bg-[#D87D4A] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all">Add To Cart</span>
             </button>
           </div>
-          <p className="absolute top-4 right-4 p-2 font-bold rounded-tr-md bg-yellow-900 text-white">
+          {/* <p className="absolute top-4 left-4 p-2 font-bold rounded-tr-md bg-yellow-900 text-white">
             ${course.price}
-          </p>
+          </p> */}
         </div>
       </div>
     </Fade>

@@ -1,41 +1,36 @@
-import { Slide } from "react-awesome-reveal";
+// import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import {  FaFacebookF, FaLinkedinIn, FaPinterestP, FaTwitter } from "react-icons/fa";
+
 
 const PopularInstructorCard = ({ instructor }) => {
   return (
-    <Slide>
-      <div className="border p-4 bg-white bg-opacity-50 hover:bg-opacity-75 saturate-50 hover:saturate-100 rounded-md">
+    <div>
+  
+      <div className="border flex flex-col items-center p-[10px]  h-full ">
+       <Link to={`/instructors/${instructor?._id}`}>
+       <div className="w-[250px] h-[250px] rounded-full p-[15px] hover:bg-[#D87D4A] border-[#D87D4A] border transition-all duration-500 ">
         <img
           src={instructor?.photo}
           alt="Instructor Img"
-          className="w-full h-40 object-cover mb-2 rounded-md"
+          className="w-full h-full object-cover rounded-full  border-[#fff] border-[8px]"
         />
-       <div className="flex justify-between">
-       <h3 className="text-xl font-bold mb-2">{instructor?.name}</h3>
-        <p className=" font-bold">Violin Instructor</p>
-       </div>
-        <p className="text-gray-600">Talented violin instructor inspires students with precision, passion, and patience, nurturing musical expression and technical excellence harmoniously. </p>
-      
-      <div className="flex justify-end pt-4">
-        <Link to={`/instructors/${instructor?._id}`} className=" btn bg-blue-500 text-white py-1 px-4 rounded-md font-semibold hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">Details</Link>
-
-      </div>
-      </div>
-
-      {/* <div className=" border p-1 card card-compact rounded-none flex md:flex-col bg-base-100 shadow-xl">
-        <img className="h-[300px]" src={instructor?.photo}/>
-        <div className="  card-body">
-            <h2 className="card-title">{instructor?.name}</h2>
-            <div>
-            <p>Total class:10</p>
-            <p>Total Students: 500</p>
-            </div>
-            <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Details</button>
-            </div>
         </div>
-    </div> */}
-    </Slide>
+       </Link>
+
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-[#101010] text-[28px] md:text-[36px] font-semibold  leading-[40px] mt-[15px]">{instructor?.name}</p>
+          <p className="text-[#10101080] text-[20px] md:text-[24px] font-semibold tracking-[3px] ">Teaching Instrument</p>
+          <div className="flex gap-[15px] items-center justify-center pt-[15px]  ">
+            <Link to='#'> <FaLinkedinIn size={20} className="hover:text-[#D87D4A] transition-all duration-300" /></Link>
+            <Link to='#'> <FaTwitter size={20} className="hover:text-[#D87D4A] transition-all duration-300"  /></Link>
+            <Link to='#'> <FaFacebookF  size={20} className="hover:text-[#D87D4A] transition-all duration-300" /></Link>
+            <Link to='#'> <FaPinterestP size={20} className="hover:text-[#D87D4A] transition-all duration-300"  /></Link>
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 };
 

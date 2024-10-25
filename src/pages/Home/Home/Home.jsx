@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 import LatestUpdate from "../latestUpdate/LatestUpdate";
 import InstrumentShowcase from "../instrumentShowcase/InstrumentShowcase";
 import CommunityHub from "../communityHub/CommunityHub";
-import PerformanceTips from "../performanceTips/PerformanceTips";
+// import PerformanceTips from "../performanceTips/PerformanceTips";
 import AboutUs from "../aboutUs/AboutUs";
 
 
@@ -25,10 +25,10 @@ const Home = () => {
             <Banner />
             <PopularClasses />
             <PopularInstructors />
-            <InstrumentShowcase />
             <CommunityHub />
+            <InstrumentShowcase />
             <LatestUpdate />
-            <PerformanceTips />
+            {/* <PerformanceTips /> */}
             <AboutUs />
             <ContactUs />
         </div>

@@ -19,11 +19,24 @@ const PopularInstructors = () => {
     return <>loading....</>
  }
     return (
-        <div className="bg-gray-800 my-5 pb-1 rounded-md bg-opacity-40">
-             <header className=" text-white py-4 text-center">
-        <h1 className="text-2xl font-bold">Popular Instructors</h1>
-      </header>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-3 py-2">
+        <div className="bg-[#fff] pb-[10px]">
+
+            <section className=" p-[10px] container  mx-auto  py-[50px] text-center ">
+        <div className="text-[#000000] flex gap-[15px] flex-col ">
+          <p className="text-[16px] md:text-[18px] tracking-[5px] md:tracking-[7px] text-[#D87D4A] uppercase">
+            our Team
+          </p>
+          <p className="font-bold text-[36px] md:text-[48px] lg:text-[56px] lg:leading-[58px] leading-[38px] md:leading-[48px] uppercase">
+            Meet our Teachers
+          </p>
+          <p className="text-[16px] md:text-[18px] text-[#000000bf] w-full max-w-[550px] mx-auto">
+            Explore our most popular classes designed to boost your skills,
+            build confidence, and make learning enjoyable. Find the perfect
+            class to start your journey today!
+          </p>
+        </div>
+      </section>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
             {
 					instructors?.map(instructor =>
 						<PopularInstructorCard

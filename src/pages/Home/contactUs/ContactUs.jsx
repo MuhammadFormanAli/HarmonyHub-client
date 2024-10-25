@@ -1,81 +1,105 @@
-import {  Fade } from "react-awesome-reveal";
+// import {  Fade } from "react-awesome-reveal";
 import {FaAddressCard, FaClock, FaPhone,  } from "react-icons/fa";
 import { MdEmail } from "react-icons/md"
 
 
 const ContactUs = () => {
   return (
-    <div className='mt-4 bg-gray-600 bg-opacity-40  p-3 rounded-md mb-4'>
-      <h2 className="text-3xl font-bold text-center">Contact Us</h2>
-      <p className='text-center mb-5 font-bold'>We always with You</p>
+    <div className="bg-[#f1f1f1]">
+      <div className='container mx-auto px-[10px] pb-[50px]'>
+      <section className=" p-[10px] container  mx-auto  py-[50px] text-center ">
+        <div className="text-[#000000] flex gap-[15px] flex-col ">
+          <p className="text-[16px] md:text-[18px] tracking-[5px] md:tracking-[7px] text-[#D87D4A] uppercase">
+          Contact Us
+          </p>
+          <p className="font-bold text-[#101010] text-[36px] md:text-[48px] lg:text-[56px] lg:leading-[58px] leading-[38px] md:leading-[48px] uppercase">
+          We always with You
+          </p>
+          
+        </div>
+      </section>
 
-      <div className='flex flex-col md:flex-row gap-3'>
-        <div className='w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-3'>
-          <Fade>
-            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
-              <span className="block w-fit mx-auto p-1"><FaAddressCard></FaAddressCard></span>
-              <h1 className='font-bold text-xl'>Address</h1>
-              <p className='font-bold text-lg'>Aladan street</p>
-              <p className='font-bold text-lg'>New Yourk</p>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+        <div className='w-full  grid grid-cols-1 md:grid-cols-2 gap-3'>
+          
+            <div className='bg-[#fff] flex gap-[10px] p-[15px]'>
+              <div className="p-[15px] bg-[#f1f1f1] w-fit h-fit rounded-full"><FaAddressCard size={30} color="#D87D4A" /></div>
+              <div>
+                <p className='text-[24px] font-semibold'> Address</p>
+              <p className='text-[20px]'>Aladan street, <br /> New Yourk</p>
+              </div>
             </div>
-          </Fade>
-          <Fade>
-            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
-              
-              <span className="block w-fit mx-auto p-1"><FaPhone></FaPhone> </span>
-              <h1 className='font-bold text-xl'>Call us</h1>
-              <p className='font-bold text-lg'>+99-404040</p>
-              <p className='font-bold text-lg'>+91-141241</p>
+
+            <div className='bg-[#fff] flex gap-[10px] p-[15px]'>
+              <div className="p-[15px] bg-[#f1f1f1] w-fit h-fit rounded-full"><FaPhone size={30} color="#D87D4A" /></div>
+              <div>
+                <p className='text-[24px] font-semibold'> Call Us</p>
+              <p className='text-[20px]'>+99-404040, <br /> 91-141241</p>
+              </div>
             </div>
-          </Fade>
-          <Fade>
-            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
-            <span className="block w-fit mx-auto p-1"><MdEmail></MdEmail></span>
-              <h1 className='font-bold text-xl'>Email Us</h1>
-              <p className='font-bold text-lg'>info@gmail.com</p>
-              <p className='font-bold text-lg'>info@gmail.com</p>
+          
+
+            <div className='bg-[#fff] flex gap-[10px] p-[15px]'>
+              <div className="p-[15px] bg-[#f1f1f1] w-fit h-fit rounded-full"><MdEmail size={30} color="#D87D4A" /></div>
+              <div>
+                <p className='text-[24px] font-semibold'> Email Us</p>
+              <p className='text-[20px]'>info@gmail.com, <br /> info@gmail.com</p>
+              </div>
             </div>
-          </Fade>
-          <Fade>
-            <div className='bg-slate-200 text-center p-4 rounded-md bg-opacity-70'>
-            <span className="block w-fit mx-auto p-1"><FaClock></FaClock></span>
-              <h1 className='font-bold text-xl'>Work Time</h1>
-              <p className='font-bold text-lg'>Mon-fri</p>
-              <p className='font-bold text-lg'>9am - 5pm </p>
+
+            <div className='bg-[#fff] flex gap-[10px] p-[15px]'>
+              <div className="p-[15px] bg-[#f1f1f1] w-fit h-fit rounded-full"><FaClock size={30} color="#D87D4A" /></div>
+              <div>
+                <p className='text-[24px] font-semibold'> Active Time</p>
+              <p className='text-[20px]'>24/7</p>
+              </div>
             </div>
-          </Fade>
         </div>
 
-        <section className="bg-slate-200 py-2 w-full md:w-1/2 rounded-md bg-opacity-70">
+        <section className="bg-[#fff] ">
           <div className="container mx-auto p-3">
-            <div className="max-w-lg mx-auto">
-              <div className="mb-2">
+            <div className="w-full flex flex-col gap-[20px]">
+              <div className=" flex gap-[20px]">
                 <input
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className=" border  w-full p-[20px] text-[#101010] focus:outline-none "
                   id="name"
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Name"
                 />
-              </div>
-              <div className="mb-2">
+
                 <input
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className=" border  w-full p-[20px] text-[#101010] focus:outline-none "
+                  id="phone"
+                  type="text"
+                  placeholder="Phone"
+                />
+
+              </div>
+              <div className="">
+                <input
+                  className=" border  w-full p-[20px] text-[#101010] focus:outline-none "
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Email"
                 />
               </div>
-              <div className="mb-2">
+              <input
+                  className=" border  w-full p-[20px] text-[#101010] focus:outline-none "
+                  id="subject"
+                  type="text"
+                  placeholder="Subject"
+                />
+              <div className="">
                 <textarea
-                  className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className=" border  w-full p-[20px] text-[#101010] focus:outline-none resize-none "
                   id="message"
-                  rows="1"
+                  rows="2"
                   placeholder="Enter your message"
                 ></textarea>
               </div>
               <div className="flex justify-center">
                 <button
-                  className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-[#D87D4A] w-full text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all"
                   type="submit"
                 >
                   Send Message
@@ -87,6 +111,7 @@ const ContactUs = () => {
 
       </div>
 
+    </div>
     </div>
 
   );
