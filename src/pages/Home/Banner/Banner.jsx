@@ -72,6 +72,7 @@ const Banner = () => {
                   <button className="bg-[#D87D4A] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all">
                     Discover More
                   </button>
+                  
                 </div>
               </div>
             </div>

@@ -10,17 +10,17 @@ import InstrumentShowcase from "../instrumentShowcase/InstrumentShowcase";
 import CommunityHub from "../communityHub/CommunityHub";
 // import PerformanceTips from "../performanceTips/PerformanceTips";
 import AboutUs from "../aboutUs/AboutUs";
+import Loading from "../../../components/shared/navbar/Loading";
+
 
 
 const Home = () => {
     const { loading } = useAuth()
     if (loading) {
-        return <div className="flex justify-center items-center h-screen">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
-        </div>
+        return <Loading />
     }
     return (
-        <div>
+        <>
             <Helmet> <title>Home - HarmonyHub</title></Helmet>
             <Banner />
             <PopularClasses />
@@ -31,7 +31,7 @@ const Home = () => {
             {/* <PerformanceTips /> */}
             <AboutUs />
             <ContactUs />
-        </div>
+        </>
     );
 };
 

@@ -2,9 +2,15 @@
 import { useQuery } from "@tanstack/react-query";
 import PopularClassesCard from "./PopularClassesCard";
 import axios from "axios";
+import SectionLoading from "../../../components/shared/SectionLoading";
+import NotFoundItem from "../../../components/shared/NotFoundItem";
 
 const PopularClasses = () => {
-  const { data: popular = [], loading } = useQuery({
+  const {
+    data: popular = [],
+    loading,
+    refetch,
+  } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
       const res = await axios(
@@ -32,9 +38,30 @@ const PopularClasses = () => {
         </div>
       </section>
 
+      {/* popular classes card section */}
 
-{/* popular classes card section */}
-      <div className="container mx-auto grid gap-2 grid-cols-1  lg:grid-cols-2 px-[10px] ">
+      {loading ? (
+        <SectionLoading />
+      ) : (
+        <>
+          {popular.length != 0 ? (
+            <div className="container mx-auto grid gap-2 grid-cols-1  lg:grid-cols-2 px-[10px] ">
+              {popular.map((course) => (
+                <PopularClassesCard
+                  key={course._id}
+                  course={course}
+                  loading={loading}
+                ></PopularClassesCard>
+              ))}
+            </div>
+          ) : (
+            <NotFoundItem refetch={refetch} />
+          )}
+        </>
+      )}
+
+      {/* popular classes card section */}
+      {/* <div className="container mx-auto grid gap-2 grid-cols-1  lg:grid-cols-2 px-[10px] ">
         {popular.map((course) => (
           <PopularClassesCard
             key={course._id}
@@ -42,7 +69,7 @@ const PopularClasses = () => {
             loading={loading}
           ></PopularClassesCard>
         ))}
-      </div>
+      </div> */}
 
     </div>
   );

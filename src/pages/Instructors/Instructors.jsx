@@ -2,9 +2,11 @@ import { Helmet } from "react-helmet-async";
 import InstructorCard from "./InstructorCard";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import SectionLoading from "../../components/shared/SectionLoading";
+import NotFoundItem from "../../components/shared/NotFoundItem";
 
 const Instructors = () => {
-  const { data: instructors = [], isLoading: loading } = useQuery({
+  const { data: instructors = [], isLoading: loading, refetch } = useQuery({
     queryKey: ["instructors"],
     queryFn: async () => {
       const res = await axios(
@@ -14,16 +16,13 @@ const Instructors = () => {
     },
   });
 
- if (loading) {
-    return <>loading....</>
- }
+
   return (
     <div>
       <Helmet>
         <title>Instructors -HarmonyHub </title>
       </Helmet>
       <div className=" bg-white  rounded-md">
-		
         <div className="relative flex items-center h-full    ">
           <img
             src="guitar.jpg"
@@ -53,14 +52,31 @@ const Instructors = () => {
           </div>
         </div>
 
-        <div className="grid gap-4  grid-cols-1 md:grid-cols-2  lg:grid-cols-4 container mx-auto px-[10px] bg-white py-[50px]">
-          {instructors?.map((instructor) => (
-            <InstructorCard
-              key={instructor?._id}
-              instructor={instructor}
-            ></InstructorCard>
-          ))}
-        </div>
+        {loading ? (
+          <SectionLoading />
+        ) : (
+          <>
+            {instructors.length != 0 ? (
+              <div className="grid gap-4  grid-cols-1 md:grid-cols-2  lg:grid-cols-4 container mx-auto px-[10px] bg-white py-[50px]">
+                {instructors?.map((instructor) => (
+                  <InstructorCard
+                  key={instructor?._id}
+                  instructor={instructor}
+                ></InstructorCard>
+                ))}
+              </div>
+            ) : (
+              <NotFoundItem refetch={refetch} />
+            )}
+          </>
+        )}
+
+
+
+
+
+
+
       </div>
     </div>
   );

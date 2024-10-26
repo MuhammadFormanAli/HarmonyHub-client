@@ -8,10 +8,11 @@ import { MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   const { logOut, user, loading } = useAuth();
+
   if (loading) {
     return <Loading></Loading>;
   }
-  console.log(user);
+  // console.log(user);
 
   const handleLogout = () => {
     logOut()

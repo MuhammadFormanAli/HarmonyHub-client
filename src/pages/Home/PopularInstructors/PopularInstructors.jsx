@@ -1,27 +1,24 @@
-
 import { useQuery } from "@tanstack/react-query";
 import PopularInstructorCard from "./PopularInstructorCard";
 import axios from "axios";
-
-
-
+import SectionLoading from "../../../components/shared/SectionLoading";
+import NotFoundItem from "../../../components/shared/NotFoundItem";
 
 const PopularInstructors = () => {
+  const { data: instructors = [], isLoading: loading, refetch } = useQuery({
+    queryKey: ["popular-instructors"],
+    queryFn: async () => {
+      const res = await axios(
+        "https://summer-camp-sandy.vercel.app/popular-instructors"
+      );
+      return res.data;
+    },
+  });
 
-    const {data: instructors = [], isLoading: loading,} = useQuery({
-        queryKey: ['popular-instructors'],
-        queryFn: async() => {
-            const res = await axios('https://summer-camp-sandy.vercel.app/popular-instructors');
-            return res.data;
-        }
-    })
- if (loading) {
-    return <>loading....</>
- }
-    return (
-        <div className="bg-[#fff] pb-[10px]">
 
-            <section className=" p-[10px] container  mx-auto  py-[50px] text-center ">
+  return (
+    <div className="bg-[#fff] pb-[10px]">
+      <section className=" p-[10px] container  mx-auto  py-[50px] text-center ">
         <div className="text-[#000000] flex gap-[15px] flex-col ">
           <p className="text-[16px] md:text-[18px] tracking-[5px] md:tracking-[7px] text-[#D87D4A] uppercase">
             our Team
@@ -36,18 +33,40 @@ const PopularInstructors = () => {
           </p>
         </div>
       </section>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
-            {
-					instructors?.map(instructor =>
-						<PopularInstructorCard
-							key={instructor?._id}
-							instructor={instructor}
-						></PopularInstructorCard>)
-				}
-           
-        </div>
-        </div>
-    );
+
+      {/* popular instructor section  */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
+        {instructors?.map((instructor) => (
+          <PopularInstructorCard
+            key={instructor?._id}
+            instructor={instructor}
+          ></PopularInstructorCard>
+        ))}
+      </div>
+
+      {loading ? (
+        <SectionLoading />
+      ) : (
+        <>
+          {instructors.length != 0 ? (
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
+             {instructors?.map((instructor) => (
+               <PopularInstructorCard
+                 key={instructor?._id}
+                 instructor={instructor}
+               ></PopularInstructorCard>
+             ))}
+           </div>
+          ) : (
+            <NotFoundItem refetch={refetch} />
+          )}
+        </>
+      )}
+
+
+
+    </div>
+  );
 };
 
 export default PopularInstructors;
