@@ -9,6 +9,32 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper";
 
 const Banner = () => {
+  const banners = [
+    {
+      id: 1,
+      title: "learn to <br /> play guitar",
+      subTitle: "Exclusive Lesson Guitar",
+      description:
+        "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+      image: "banner-guitar.jpg",
+    },
+    {
+      id: 2,
+      title: "learn to <br /> play violin",
+      subTitle: "Exclusive Lesson violin",
+      description:
+        "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+      image: "banner-violin.jpg",
+    },
+    {
+      id: 3,
+      title: "learn to <br /> play Piano",
+      subTitle: "Exclusive Lesson piano",
+      description:
+        "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+      image: "banner-piano.jpg",
+    },
+  ];
   return (
     <div className=" bg-[#101010]">
       <Swiper
@@ -22,64 +48,35 @@ const Banner = () => {
         className=" h-full lg:h-[550px]  2xl:h-[700px]"
         autoplay={{ delay: 4000 }}
       >
-{
-    [1,2,3].map(item =><SwiperSlide key={item}
-        >
-          <div className="relative flex items-center h-full  ">
-            <img
-              src="/public/banner/guitar1.jpg"
-              alt="banner image"
-              className="absolute right-0 top-0 -z-10 object-cover  h-full w-full "
-            />  
-            <div className="flex items-center h-full p-[10px] container  mx-auto py-[50px] lg:py-0 ">
-              <div className="text-[#fff] flex gap-[15px] flex-col w-full max-w-[350px] md:max-w-[450px] ">
-                <p className="text-[12px] md:text-[14px] tracking-[5px] md:tracking-[7px] text-[#ffffff80] uppercase">
-                  Exclusive Lesson Guitar
-                </p>
-                <p className="font-bold text-[36px] md:text-[48px] lg:text-[56px] lg:leading-[58px] leading-[38px] md:leading-[48px] uppercase">
-                  learn to <br /> play guitar{" "}
-                </p>
-                <p className="text-[14px] md:text-[16px] text-[#ffffffbf]">
-                  Experience natural, lifelike audio and exceptional build
-                  quality made for the passionate music enthusiast.
-                </p>
-                <button className="bg-[#D87D4A] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all">
-                  Discover More
-                </button>
+        {banners.map((item) => (
+          <SwiperSlide key={item?.id}>
+            <div className="relative flex items-center h-full  ">
+              <img
+                src={item?.image}
+                alt="banner image"
+                className="absolute right-0 top-0 -z-10 object-cover  h-full w-full "
+              />
+              <div className="flex items-center h-full p-[10px] container  mx-auto py-[50px] lg:py-0 ">
+                <div className="text-[#fff] flex gap-[15px] flex-col w-full max-w-[350px] md:max-w-[450px] ">
+                  <p className="text-[12px] md:text-[14px] tracking-[5px] md:tracking-[7px] text-[#ffffff80] uppercase">
+                    {item?.subTitle}
+                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: item?.title }}
+                    className="font-bold text-[36px] md:text-[48px] lg:text-[56px] lg:leading-[58px] leading-[38px] md:leading-[48px] uppercase"
+                  ></p>
+
+                  <p className="text-[14px] md:text-[16px] text-[#ffffffbf]">
+                    {item?.description}
+                  </p>
+                  <button className="bg-[#D87D4A] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all">
+                    Discover More
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide> )
-}
-
-        
-
-        {/* <SwiperSlide
-          style={{
-            backgroundImage: `url("public/banner/guitar1.jpg")`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex items-center h-full p-[10px] container  mx-auto py-[50px] ">
-            <div className="text-[#fff] flex gap-[15px] flex-col w-full max-w-[350px] md:max-w-[450px] ">
-              <p className="text-[12px] md:text-[14px] tracking-[5px] md:tracking-[7px] text-[#ffffff80] uppercase">
-                Exclusive Lesson Guitar
-              </p>
-              <p className="font-bold text-[36px] md:text-[48px] lg:text-[56px] lg:leading-[58px] leading-[38px] md:leading-[48px] uppercase">
-                learn to <br /> play guitar{" "}
-              </p>
-              <p className="text-[14px] md:text-[16px] text-[#ffffffbf]">
-                Experience natural, lifelike audio and exceptional build quality
-                made for the passionate music enthusiast.
-              </p>
-              <button className="bg-[#D87D4A] w-fit text-[#fff] px-[15px] py-[10px] hover:bg-[#fbaf85] text-[16px] transition-all">
-                Discover More
-              </button>
-            </div>
-          </div>
-        </SwiperSlide> */}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
