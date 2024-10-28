@@ -35,15 +35,18 @@ const PopularInstructors = () => {
       </section>
 
       {/* popular instructor section  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] container mx-auto px-[10px]">
         {instructors?.map((instructor) => (
           <PopularInstructorCard
             key={instructor?._id}
             instructor={instructor}
           ></PopularInstructorCard>
         ))}
-      </div>
+      </div> */}
 
+
+      
+{/* popular instructor section  */}
       {loading ? (
         <SectionLoading />
       ) : (

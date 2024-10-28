@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { FcGoogle } from "react-icons/fc";
 
 
 const SocialLogIn = () => {
@@ -28,27 +29,13 @@ const SocialLogIn = () => {
                     navigate(from, { replace: true })
                 })
                 
-                // fetch('https://summer-camp-sandy.vercel.app/users', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(saveUser)
-                // })
-                //     .then(res => res.json())
-                //     .then(() => {
-                //         Swal.fire('Log In successful')
-                //         navigate(from, { replace: true })
-                //     })
-
-
             }).catch(error => {
                 console.log(error.message)
             })
     }
     return (
         <div>
-            <button className='btn btn-outline w-full font-bold text-xl' onClick={handleGoogleSignIn}>google sign in</button>
+            <button className='w-fit p-[8px] bg-[#fff] hover:bg-[#f1f1f1] border   transition-all duration-500 rounded-md' onClick={handleGoogleSignIn}><FcGoogle size={30} /></button>
         </div>
     );
 };

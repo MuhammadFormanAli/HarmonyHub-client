@@ -8,7 +8,7 @@ import NotFoundItem from "../../../components/shared/NotFoundItem";
 const PopularClasses = () => {
   const {
     data: popular = [],
-    loading,
+    isLoading:loading,
     refetch,
   } = useQuery({
     queryKey: ["popular"],
