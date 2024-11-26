@@ -3,9 +3,14 @@ import useRole from "../../../hooks/useRole";
 import AdminDashboard from "../admin/AdminDashboard";
 import InstructorDashboardHome from "../instructor/InstructorDashboardHome";
 import StudentDashboardHome from "../student/StudentDashboardHome";
+import Loading from "../../../components/shared/navbar/Loading";
 
 const DashboardHome = () => {
-    const [userRole] = useRole()
+    const [userRole,loading] = useRole()
+    
+    if(loading){
+        return <Loading />
+    }
 
     return (
 <>
@@ -13,13 +18,13 @@ const DashboardHome = () => {
 
         <div>
            {
-            userRole.role === "admin" && <AdminDashboard></AdminDashboard>
+            userRole?.role === "admin" && <AdminDashboard></AdminDashboard>
            }
            {
-            userRole.role === "instructor" && <InstructorDashboardHome></InstructorDashboardHome>
+            userRole?.role === "instructor" && <InstructorDashboardHome></InstructorDashboardHome>
            }
            {
-            userRole.role === "student" && <StudentDashboardHome></StudentDashboardHome>
+            userRole?.role === "student" && <StudentDashboardHome></StudentDashboardHome>
            }
         </div>
 </>
