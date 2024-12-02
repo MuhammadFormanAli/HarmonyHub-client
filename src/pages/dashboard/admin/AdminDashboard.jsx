@@ -155,9 +155,9 @@ const AdminDashboard = () => {
     <div className="bg-gray-100 p-8 text-[#d87d4a] max-w-[1080px] ">
       <div className="text-black">
         <h1 className="text-2xl font-bold mb-2">
-          Welcome to Admin the Dashboard!
+        Admin Dashboard!
         </h1>
-        <h1 className="text-1xl font-bold mb-5">{user?.displayName}</h1>
+        <h1 className="text-1xl font-bold mb-5">Welcome {user?.displayName}!</h1>
       </div>
 
       <div className="flex flex-row gap-4 max-h-[350px]">
@@ -189,37 +189,6 @@ const AdminDashboard = () => {
             <SiGoogleclassroom size={45} />
           </div>
 
-          {/* <div className="bg-white p-4 shadow-md rounded-lg flex justify-between items-center text-[#d87d4a] hover:text-[#fff] transition-all hover:bg-[#d87d4a]">
-          <div>
-            <p className=" text-[30px] font-bold">
-              {" "}
-              {allClasses?.filter((x) => x.status === "approved").length}
-            </p>
-            <h2 className=" ">Approved</h2>
-          </div>
-          <FaCheck size={45} />
-        </div>
-
-        <div className="bg-white p-4 shadow-md rounded-lg flex justify-between items-center text-[#d87d4a] hover:text-[#fff] transition-all hover:bg-[#d87d4a]">
-          <div>
-            <p className=" text-[30px] font-bold">
-              {" "}
-              {allClasses?.filter((x) => x.status === "pending").length}
-            </p>
-            <h2 className=" ">Pending</h2>
-          </div>
-          <MdOutlinePendingActions size={45} />
-        </div>
-        <div className="bg-white p-4 shadow-md rounded-lg flex justify-between items-center text-[#d87d4a] hover:text-[#fff] transition-all hover:bg-[#d87d4a]">
-          <div>
-            <p className=" text-[30px] font-bold">
-              {" "}
-              {allClasses?.filter((x) => x.status === "denied").length}
-            </p>
-            <h2 className=" ">Denied</h2>
-          </div>
-          <ImCross size={45} />
-        </div> */}
         </div>
         <div className="w-full">
           <Doughnut

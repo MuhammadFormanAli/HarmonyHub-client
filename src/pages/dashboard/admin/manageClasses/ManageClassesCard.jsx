@@ -51,7 +51,7 @@ const ManageClassesCard = ({ index, course, refetch }) => {
 
                 <button onClick={() => handleUpdateStatus(_id, 'approved')} disabled={status === 'approved' || status === 'denied'} className="btn disabled:bg-green-100 btn-sm block m-1 btn-success">Approve</button>
                 <button onClick={() => handleUpdateStatus(_id, 'denied')} disabled={status === 'approved' || status === 'denied'} className="btn btn-sm disabled:bg-red-100 block m-1 btn-error">Deny</button>
-                <Link  className="btn btn-sm block m-1 btn-info" to={`feedback/${_id}`}>{feedback?"Feedback Sended":"Give Feedback"}</Link>
+                <Link  className="btn btn-sm  m-1 btn-info flex items-center justify-center" to={`feedback/${_id}`}>{feedback?"Feedback Sended":"Give Feedback"}</Link>
                 {/* <Link disabled={status === 'approved' ||status === 'pending'|| feedback}  className="btn btn-sm block m-1 btn-info" to={`feedback/${_id}`}>{feedback?"Feedback Sended":"Give Feedback"}</Link> */}
             </td>
         </tr>

@@ -24,19 +24,19 @@ const Feedback = () => {
                 navigate('/dashboard/manage-classes')
                 
             }
-            console.log(data.data)
+            // console.log(data.data)
         })
         
 
     }
 
     return (
-        <div className="flex items-stretch justify-center flex-col h-full">
+        <div className="flex flex-col w-full max-w-[1080px] ">
             <Helmet><title>Feedback - HarmonyHub</title></Helmet>
             <h1 className="bg-cyan-900 text-stone-50 font-bold p-10 text-xl md:text-3xl text-center">Send Your Feedback To Instructor</h1>
             <form onSubmit={handleFeedback}>
             
-            <textarea className="w-full border h-28 text-lg" name="feedback" cols="30" rows="10" placeholder="Type your feedback"></textarea>
+            <textarea className="w-full border  text-lg" name="feedback" cols="30" rows="10" placeholder="Type your feedback"></textarea>
             <input className="btn btn-info my-4" type="submit" value="Send Feedback" />
         </form>
         </div>
